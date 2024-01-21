@@ -1,40 +1,30 @@
 {
 	"schemaVersion": 1,
-	"id": "templatemod",
+	"id": "moonvent_hp_hud_mod",
 	"version": "${version}",
-	"name": "Template Mod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "HPHUD",
+	"description": "Mod for represent amount of hp which has a entity",
 	"authors": [
-		"Me!"
+		"Moonvent"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://t.me/moonvent"
 	},
 	"license": "MIT",
-	"icon": "assets/templatemod/icon.png",
-	"environment": "*",
+	"icon": "assets/moonvent_hp_hud_mod/icon.png",
+	"environment": "client",
 	"entrypoints": {
-		"main": [
-			"com.example.TemplateMod"
-		],
-		"client": [
-			"com.example.TemplateModClient"
-		],
 		"fabric-datagen": [
-			"com.example.TemplateModDataGenerator"
+			"minecraftlover.moonvent.HPHUD.HPHUDDataGenerator"
 		]
 	},
 	"mixins": [
-		"templatemod.mixins.json"
+		"hphud.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.15.3",
 		"minecraft": "~1.20.4",
 		"java": ">=20",
 		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
 	}
 }
