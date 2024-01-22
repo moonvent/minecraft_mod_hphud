@@ -12,8 +12,11 @@
 	},
 	"license": "MIT",
 	"icon": "assets/moonvent_hp_hud_mod/icon.png",
-	"environment": "client",
+	"environment": "*",
 	"entrypoints": {
+		"client": [
+			"minecraftlover.moonvent.HPHUD.HPHUDClient"
+		],
 		"fabric-datagen": [
 			"minecraftlover.moonvent.HPHUD.HPHUDDataGenerator"
 		]
