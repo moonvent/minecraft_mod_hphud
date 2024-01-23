@@ -90,15 +90,9 @@ public class PlayHUDMixin {
           indicatorText = indicatorText.replaceFirst("0".repeat(firstZerosIndex), " ".repeat(firstZerosIndex));
         }
 
-        guiScale = minecraftClient.options.getGuiScale().getValue();
+//        guiScale = minecraftClient.options.getGuiScale().getValue();
 
-        if (guiScale > 0 && guiScale < 6) {
-          guiScale = 10 - minecraftClient.options.getGuiScale().getValue();
-        } else if (guiScale > 5) {
-          guiScale = 5;
-        } else {
-          guiScale = 1;
-        }
+        guiScale = 7;
 
         centerX = lastScreen.width / 2;
         centerY = lastScreen.height / 2;
