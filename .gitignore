@@ -40,4 +40,4 @@ replay_*.log
 *.jfr
 
 /.factorypath
-/.gradle.properties-e
+/gradle.properties-e
