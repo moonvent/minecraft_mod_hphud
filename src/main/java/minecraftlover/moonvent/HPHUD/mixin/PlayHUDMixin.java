@@ -1,6 +1,5 @@
 package minecraftlover.moonvent.HPHUD.mixin;
 
-import minecraftlover.moonvent.HPHUD.HPHUDClient;
 import minecraftlover.moonvent.HPHUD.config.ModConfig;
 import minecraftlover.moonvent.HPHUD.util.Constant;
 import net.minecraft.client.MinecraftClient;
@@ -17,7 +16,6 @@ import net.minecraft.util.math.Vec3d;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -43,10 +41,10 @@ public class PlayHUDMixin {
   private int textY;
 
   private int firstZerosIndex;
-  private int guiScale;
+  private int horizontalGuiScale;
+  private int verticalGuiScale;
 
   private ModConfig config;
-
 
   @Inject(method = "render", at = @At("RETURN"))
   private void render(DrawContext context, float tickDelta, CallbackInfo ci) {
@@ -70,7 +68,7 @@ public class PlayHUDMixin {
       Box searchBox = viewer.getBoundingBox().stretch(look.multiply(config.searchDistance)).expand(1.0D, 1.0D, 1.0D);
       Predicate<Entity> isPositive = entity -> true;
       EntityHitResult result = ProjectileUtil.raycast(viewer, position, max, searchBox, isPositive,
-              config.searchDistance * config.searchDistance);
+          config.searchDistance * config.searchDistance);
 
       if (result != null && result.getEntity() instanceof LivingEntity) {
         LivingEntity target = (LivingEntity) result.getEntity();
@@ -95,15 +93,16 @@ public class PlayHUDMixin {
           indicatorText = indicatorText.replaceFirst("0".repeat(firstZerosIndex), " ".repeat(firstZerosIndex));
         }
 
-//        guiScale = minecraftClient.options.getGuiScale().getValue();
+        // guiScale = minecraftClient.options.getGuiScale().getValue();
 
-        guiScale = 7;
+        horizontalGuiScale = config.outputGeneralAmountEnemyHp ? 14 : 7;
+        verticalGuiScale = 7;
 
         centerX = lastScreen.width / 2;
         centerY = lastScreen.height / 2;
 
-        offsetX = 3 * guiScale;
-        offsetY = 2 * guiScale;
+        offsetX = 3 * horizontalGuiScale;
+        offsetY = 2 * verticalGuiScale;
 
         textX = centerX - offsetX;
         textY = centerY - offsetY;

@@ -30,7 +30,6 @@ public class ConfigManager {
       config = GSON.fromJson(reader, ModConfig.class);
     } catch (IOException e) {
       e.printStackTrace();
-      // Обработка ошибок
     }
   }
 
@@ -40,44 +39,7 @@ public class ConfigManager {
       GSON.toJson(config, writer);
     } catch (IOException e) {
       e.printStackTrace();
-      // Обработка ошибок
     }
   }
 
-  // private void createConfig() throws IOException {
-  // Files.createDirectories(configPath.getParent());
-  // saveDefaultConfig();
-  // }
-  //
-  // public void saveDefaultConfig() {
-  // try {
-  // tomlWriter.write(new ModConfig(), configPath.toFile());
-  // } catch (Exception e) {
-  // e.printStackTrace();
-  // }
-  // }
-  //
-  // public void loadConfig() throws IOException {
-  // configFile = configPath.toFile();
-  //
-  // if (configFile.exists()) {
-  // Toml toml = new Toml().read(configFile);
-  // // ModConfig.outputGeneralAmountEnemyHp =
-  // toml.getBoolean("outputGeneralAmountEnemyHp");
-  // } else {
-  // createConfig();
-  // }
-  // }
-  //
-  // public void saveConfig() {
-  // try {
-  // tomlWriter.write(new ModConfig(), configPath.toFile());
-  // } catch (IOException e) {
-  // e.printStackTrace();
-  // }
-  // }
-  //
-  //
-  //
-  //
 }
