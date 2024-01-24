@@ -1,5 +1,6 @@
 package minecraftlover.moonvent.HPHUD.mixin;
 
+import minecraftlover.moonvent.HPHUD.HPHUDClient;
 import minecraftlover.moonvent.HPHUD.config.ModConfig;
 import minecraftlover.moonvent.HPHUD.util.Constant;
 import net.minecraft.client.MinecraftClient;
@@ -44,12 +45,16 @@ public class PlayHUDMixin {
   private int firstZerosIndex;
   private int guiScale;
 
+  private ModConfig config;
+
+
   @Inject(method = "render", at = @At("RETURN"))
   private void render(DrawContext context, float tickDelta, CallbackInfo ci) {
 
     MinecraftClient minecraftClient = MinecraftClient.getInstance();
     TextRenderer textRenderer = minecraftClient.textRenderer;
     Screen currentScreen = minecraftClient.currentScreen;
+    config = ModConfig.getInstance();
 
     if (currentScreen != null) {
       lastScreen = currentScreen;
@@ -60,12 +65,12 @@ public class PlayHUDMixin {
       Vec3d position = viewer.getCameraPosVec(tickDelta);
       Vec3d look = viewer.getRotationVec(1.0F);
 
-      Vec3d max = position.add(look.x * ModConfig.searchDistance, look.y * ModConfig.searchDistance,
-          look.z * ModConfig.searchDistance);
-      Box searchBox = viewer.getBoundingBox().stretch(look.multiply(ModConfig.searchDistance)).expand(1.0D, 1.0D, 1.0D);
+      Vec3d max = position.add(look.x * config.searchDistance, look.y * config.searchDistance,
+          look.z * config.searchDistance);
+      Box searchBox = viewer.getBoundingBox().stretch(look.multiply(config.searchDistance)).expand(1.0D, 1.0D, 1.0D);
       Predicate<Entity> isPositive = entity -> true;
       EntityHitResult result = ProjectileUtil.raycast(viewer, position, max, searchBox, isPositive,
-          ModConfig.searchDistance * ModConfig.searchDistance);
+              config.searchDistance * config.searchDistance);
 
       if (result != null && result.getEntity() instanceof LivingEntity) {
         LivingEntity target = (LivingEntity) result.getEntity();
@@ -77,7 +82,7 @@ public class PlayHUDMixin {
         if (currentEntityHealth == 0)
           return;
 
-        if (ModConfig.outputGeneralAmountEnemyHp) {
+        if (config.outputGeneralAmountEnemyHp) {
           indicatorText = String.format("%0" + maxEntityHpAmountLength + "d / %s",
               currentEntityHealth, maxEntityHealth);
         } else {
@@ -107,7 +112,7 @@ public class PlayHUDMixin {
             indicatorText,
             textX,
             textY,
-            0xFFAFFF,
+            config.indicatorColor,
             true);
       }
 
