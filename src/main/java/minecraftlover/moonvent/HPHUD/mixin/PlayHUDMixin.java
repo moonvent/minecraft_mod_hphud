@@ -20,6 +20,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.Objects;
 import java.util.function.Predicate;
 
 @Mixin(InGameHud.class)
@@ -45,6 +46,33 @@ public class PlayHUDMixin {
   private int verticalGuiScale;
 
   private ModConfig config;
+
+  private void getTextForIndicator(LivingEntity entity) {
+
+    maxEntityHealth = (int) entity.getMaxHealth();
+    currentEntityHealth = (int) Math.ceil(entity.getHealth());
+    maxEntityHpAmountLength = Integer.toString(maxEntityHealth).length();
+
+    if (currentEntityHealth == 0) {
+      indicatorText = null;
+      return;
+    }
+
+    switch (config.outputIndicatorMod) {
+      case Constant.INDICATOR_TYPE.CURRENT_WITH_MAX_HP:
+        indicatorText = String.format("%0" + maxEntityHpAmountLength + "d / %s",
+            currentEntityHealth, maxEntityHealth);
+        break;
+      case Constant.INDICATOR_TYPE.CURRENT_PERCENTAGE_HP:
+        indicatorText = String.format("%03d %%",
+            (int) Math.ceil((float) currentEntityHealth / (float) maxEntityHealth * 100.0));
+        break;
+      default:
+        indicatorText = String.format("%0" + maxEntityHpAmountLength + "d",
+            currentEntityHealth);
+        break;
+    }
+  }
 
   @Inject(method = "render", at = @At("RETURN"))
   private void render(DrawContext context, float tickDelta, CallbackInfo ci) {
@@ -73,29 +101,25 @@ public class PlayHUDMixin {
       if (result != null && result.getEntity() instanceof LivingEntity) {
         LivingEntity target = (LivingEntity) result.getEntity();
 
-        maxEntityHealth = (int) target.getMaxHealth();
-        currentEntityHealth = (int) Math.ceil(target.getHealth());
-        maxEntityHpAmountLength = Integer.toString(maxEntityHealth).length();
+        getTextForIndicator(target);
 
-        if (currentEntityHealth == 0)
+        if (indicatorText == null)
           return;
 
-        if (config.outputGeneralAmountEnemyHp) {
-          indicatorText = String.format("%0" + maxEntityHpAmountLength + "d / %s",
-              currentEntityHealth, maxEntityHealth);
-        } else {
-          indicatorText = String.format("%0" + maxEntityHpAmountLength + "d",
-              currentEntityHealth);
-        }
         firstZerosIndex = indicatorText.indexOf(String.valueOf(currentEntityHealth));
 
+        // replace first zeros if exist it, and replace it to spaces for prettier output
+        // of indicator
+        // example response:
+        // without this -> 100 -> 100, 70 -> 70
+        // with this -> 100 -> 100, 70 -> _70 and range between different numbers equal
         if (firstZerosIndex > -1) {
           indicatorText = indicatorText.replaceFirst("0".repeat(firstZerosIndex), " ".repeat(firstZerosIndex));
         }
 
         // guiScale = minecraftClient.options.getGuiScale().getValue();
 
-        horizontalGuiScale = config.outputGeneralAmountEnemyHp ? 14 : 7;
+        horizontalGuiScale = !Objects.equals(config.outputIndicatorMod, Constant.INDICATOR_TYPE.CURRENT_HP) ? 14 : 7;
         verticalGuiScale = 7;
 
         centerX = lastScreen.width / 2;
