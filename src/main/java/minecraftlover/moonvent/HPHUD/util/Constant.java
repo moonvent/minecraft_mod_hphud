@@ -38,4 +38,13 @@ public final class Constant {
     public static final String CUSTOM_FROM_CENTER = "CUSTOM_FROM_CENTER";
     public static final String FULL_CUSTOM = "FULL_CUSTOM";
   }
+
+  public static final class ModConfigField {
+    public static final String OUTPUT_INDICATOR_MODE = "outputIndicatorMode";
+    public static final String SEARCH_DISTANCE = "searchDistance";
+    public static final String INDICATOR_COLOR = "indicatorColor";
+    public static final String INDICATOR_POSITION = "indicatorPosition";
+    public static final String INDICATOR_POSITION_CUSTOM_X = "indicatorPositionCustomX";
+    public static final String INDICATOR_POSITION_CUSTOM_Y = "indicatorPositionCustomY";
+  }
 }

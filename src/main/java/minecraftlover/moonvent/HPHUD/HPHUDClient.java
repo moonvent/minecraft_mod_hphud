@@ -1,6 +1,7 @@
 package minecraftlover.moonvent.HPHUD;
 
 import minecraftlover.moonvent.HPHUD.config.ConfigManager;
+import minecraftlover.moonvent.HPHUD.config.ModConfig;
 import minecraftlover.moonvent.HPHUD.util.Constant;
 import net.fabricmc.api.ClientModInitializer;
 import org.slf4j.Logger;
@@ -12,6 +13,7 @@ public class HPHUDClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        new ConfigManager();
+        // new ConfigManager();
+        new ModConfig();
     }
 }
