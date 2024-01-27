@@ -91,7 +91,7 @@ public class PlayHUDMixin {
             indicatorText,
             indicatorCoordinate.getX() - textWidth / 2,
             indicatorCoordinate.getY() - textHeight / 2,
-            config.indicatorColor,
+            Integer.parseInt(config.indicatorColor, 16),
             true);
       }
 

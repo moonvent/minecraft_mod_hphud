@@ -13,11 +13,11 @@ public final class ModConfig {
     // for singleton
     private static ModConfig instance;
 
-    public String outputIndicatorMode = "currentPercentageHP";
+    public String outputIndicatorMode = "currentHP";
 
     public int searchDistance = 20;
 
-    public int indicatorColor = 0xFFAFFF;
+    public String indicatorColor = "FFAFFF";
 
     public String indicatorPosition = "LEFT_UPPER_NEAR_CROSSHAIR";
 
@@ -55,8 +55,8 @@ public final class ModConfig {
                         outputIndicatorMode);
                 searchDistance = Integer.parseInt(configProps.getProperty(Constant.ModConfigField.SEARCH_DISTANCE,
                         String.valueOf(searchDistance)));
-                indicatorColor = Integer.parseInt(configProps.getProperty(Constant.ModConfigField.INDICATOR_COLOR,
-                        String.valueOf(indicatorColor)), 16);
+                indicatorColor = configProps.getProperty(Constant.ModConfigField.INDICATOR_COLOR,
+                        String.valueOf(indicatorColor));
                 indicatorPosition = configProps.getProperty(Constant.ModConfigField.INDICATOR_POSITION,
                         indicatorPosition);
                 // indicatorPositionCustomX = Integer

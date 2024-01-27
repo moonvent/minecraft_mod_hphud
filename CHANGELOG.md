@@ -1,8 +1,10 @@
-0.3.15
+0.4.20
 
 1) Change config format;
 2) Add in a config a pseudo docs;
 3) Add percentage view;
+4) Add position changing;
+5) Code refactoring and optimizing;
 
 0.2.12
 
