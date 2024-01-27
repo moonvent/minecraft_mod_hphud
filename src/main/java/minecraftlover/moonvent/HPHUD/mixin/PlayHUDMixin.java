@@ -2,6 +2,7 @@ package minecraftlover.moonvent.HPHUD.mixin;
 
 import minecraftlover.moonvent.HPHUD.config.ModConfig;
 import minecraftlover.moonvent.HPHUD.util.Constant;
+import minecraftlover.moonvent.HPHUD.util.IndicatorCoordinate;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
@@ -20,7 +21,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.Objects;
 import java.util.function.Predicate;
 
 @Mixin(InGameHud.class)
@@ -34,19 +34,56 @@ public class PlayHUDMixin {
 
   private int currentEntityHealthLenght;
 
-  private int centerX;
-  private int centerY;
-
-  private int offsetX;
-  private int offsetY;
-
-  private int textX;
-  private int textY;
-
-  private int horizontalGuiScale;
-  private int verticalGuiScale;
-
   private ModConfig config;
+
+  @Inject(method = "render", at = @At("RETURN"))
+  private void render(DrawContext context, float tickDelta, CallbackInfo ci) {
+
+    MinecraftClient minecraftClient = MinecraftClient.getInstance();
+    TextRenderer textRenderer = minecraftClient.textRenderer;
+    Screen currentScreen = minecraftClient.currentScreen;
+    IndicatorCoordinate indicatorCoordinate = IndicatorCoordinate.getInstance();
+
+    config = ModConfig.getInstance();
+
+    if (currentScreen != null) {
+      indicatorCoordinate.setCachedPlayerScreen(currentScreen);
+
+    } else {
+
+      Entity viewer = minecraftClient.getCameraEntity();
+
+      Vec3d position = viewer.getCameraPosVec(tickDelta);
+      Vec3d look = viewer.getRotationVec(1.0F);
+
+      Vec3d max = position.add(look.x * config.searchDistance, look.y * config.searchDistance,
+          look.z * config.searchDistance);
+      Box searchBox = viewer.getBoundingBox().stretch(look.multiply(config.searchDistance)).expand(1.0D, 1.0D, 1.0D);
+      Predicate<Entity> isPositive = entity -> true;
+      EntityHitResult result = ProjectileUtil.raycast(viewer, position, max, searchBox, isPositive,
+          config.searchDistance * config.searchDistance);
+
+      if (result != null && result.getEntity() instanceof LivingEntity) {
+        LivingEntity target = (LivingEntity) result.getEntity();
+
+        getTextForIndicator(target);
+
+        if (indicatorText == null)
+          return;
+
+        // guiScale = minecraftClient.options.getGuiScale().getValue();
+
+        context.drawText(textRenderer,
+            indicatorText,
+            indicatorCoordinate.getX(),
+            indicatorCoordinate.getY(),
+            config.indicatorColor,
+            true);
+      }
+
+    }
+
+  }
 
   private void getTextForIndicator(LivingEntity entity) {
 
@@ -75,68 +112,13 @@ public class PlayHUDMixin {
         break;
     }
 
-    // if some text decrease, stay away in old position it, cause render run from left to right,
-    // and if hp was 100 and now 99, text len will decrease, and that will be annoying
+    // if some text decrease, stay away in old position it, cause render run from
+    // left to right,
+    // and if hp was 100 and now 99, text len will decrease, and that will be
+    // annoying
     if (currentEntityHealthLenght < maxEntityHpAmountLength)
-      indicatorText = String.format("%" + (maxEntityHpAmountLength - currentEntityHealthLenght) + "s%s", "", indicatorText);
-  }
-
-  @Inject(method = "render", at = @At("RETURN"))
-  private void render(DrawContext context, float tickDelta, CallbackInfo ci) {
-
-    MinecraftClient minecraftClient = MinecraftClient.getInstance();
-    TextRenderer textRenderer = minecraftClient.textRenderer;
-    Screen currentScreen = minecraftClient.currentScreen;
-    config = ModConfig.getInstance();
-
-    if (currentScreen != null) {
-      lastScreen = currentScreen;
-
-    } else {
-
-      Entity viewer = minecraftClient.getCameraEntity();
-      Vec3d position = viewer.getCameraPosVec(tickDelta);
-      Vec3d look = viewer.getRotationVec(1.0F);
-
-      Vec3d max = position.add(look.x * config.searchDistance, look.y * config.searchDistance,
-          look.z * config.searchDistance);
-      Box searchBox = viewer.getBoundingBox().stretch(look.multiply(config.searchDistance)).expand(1.0D, 1.0D, 1.0D);
-      Predicate<Entity> isPositive = entity -> true;
-      EntityHitResult result = ProjectileUtil.raycast(viewer, position, max, searchBox, isPositive,
-          config.searchDistance * config.searchDistance);
-
-      if (result != null && result.getEntity() instanceof LivingEntity) {
-        LivingEntity target = (LivingEntity) result.getEntity();
-
-        getTextForIndicator(target);
-
-        if (indicatorText == null)
-          return;
-
-        // guiScale = minecraftClient.options.getGuiScale().getValue();
-
-        horizontalGuiScale = !Objects.equals(config.outputIndicatorMode, Constant.INDICATOR_TYPE.CURRENT_HP) ? 14 : 7;
-        verticalGuiScale = 7;
-
-        centerX = lastScreen.width / 2;
-        centerY = lastScreen.height / 2;
-
-        offsetX = 3 * horizontalGuiScale;
-        offsetY = 2 * verticalGuiScale;
-
-        textX = centerX - offsetX;
-        textY = centerY - offsetY;
-
-        context.drawText(textRenderer,
-            indicatorText,
-            textX,
-            textY,
-            config.indicatorColor,
-            true);
-      }
-
-    }
-
+      indicatorText = String.format("%" + (maxEntityHpAmountLength - currentEntityHealthLenght) + "s%s", "",
+          indicatorText);
   }
 
 }
