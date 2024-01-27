@@ -13,6 +13,53 @@ public final class Constant {
 
   public static final String LOGGER_HUD_NAME = MOD_NAME + "| HUD";
 
+  public static final String CONFIG_FILE_PATH = "config/" + MOD_NAME + ".cfg";
+
+  public static final String CONFIG_FILE_HEADER_DESCRIPTION = "[HPHUP]\n" +
+          "Mod configuration file\n\n" +
+          "This config sets a few detail which help you tailor the mod more for your playstyle,\n" +
+          "below, I have describe a several fields and all possible values for them,\n" +
+          "this documentation should help you in configuring the mod;\n" +
+          "Happy configuring :)\n\n" +
+          "==================================================\n\n" +
+          "outputIndicatorMode - mod has 3 different modes to output you amount of entity health:\n\n" +
+          "  Available values:\n" +
+          "    1) currentHP - display amount of current entity HP, default value for parametr\n" +
+          "      Example:\n" +
+          "      10\n" +
+          "    2) currentWithMaxHP - display current hp, slash, max hp\n" +
+          "      Example:\n" +
+          "        10 / 20\n" +
+          "    3) currentPercentageHP - display amount of entity hp in percentage\n" +
+          "      Example:\n" +
+          "        50%\n\n" +
+          "searchDistance - How far (in blocks) mod will be search entity for display amount of HP\n" +
+          "  Available values:\n\n" +
+          "    Positive Integer, 1 - 100, if set someting wrong\n" +
+          "  Example:\n" +
+          "    20\n\n" +
+          "indicatorColor - Color of indicator, I try a several colors, and find that pink :)\n" +
+          "  is more suitable for most cases, but, if you think otherwise and have a suitable replacement, let me know.\n" +
+          "  Our staff of one employee will check it, and if necessary, change the default color\n\n" +
+          "  Available values:\n" +
+          "    Any color in hex view, for example, and by default sets FFAFFF\n" +
+          "  Example:\n" +
+          "    FFAFFF\n\n" +
+          "indicatorPosition - Indicator position, now, in relation from crosshair\n\n" +
+          "  Available values:\n" +
+          "    LEFT_UPPER_NEAR_CROSSHAIR, RIGHT_UPPER_NEAR_CROSSHAIR, LEFT_BOTTOM_NEAR_CROSSHAIR, RIGHT_BOTTOM_NEAR_CROSSHAIR,\n" +
+          "    RIGHT_NEAR_CROSSHAIR, TOP_NEAR_CROSSHAIR, BOTTOM_NEAR_CROSSHAIR, LEFT_NEAR_CROSSHAIR\n" +
+          "  Example:\n" +
+          "    LEFT_UPPER_NEAR_CROSSHAIR\n\n" +
+          "Final default config example seem like that:\n\n" +
+          "indicatorColor=FFAFFF\n" +
+          "indicatorPosition=LEFT_UPPER_NEAR_CROSSHAIR\n" +
+          "outputIndicatorMode=currentHP\n" +
+          "searchDistance=20\n\n" +
+          "If something went wrong, you are set the wrong type of parametr or wrong parametr,\n" +
+          "mod will be use default value, which describe in a config example above\n\n" +
+          "Thank you for playing with this mod!\n";
+
   public static final class INDICATOR_TYPE {
     public static final String CURRENT_HP = "currentHP";
     public static final String CURRENT_WITH_MAX_HP = "currentWithMaxHP";

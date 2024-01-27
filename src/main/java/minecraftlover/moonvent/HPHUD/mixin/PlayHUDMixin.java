@@ -58,7 +58,7 @@ public class PlayHUDMixin {
       return;
     }
 
-    switch (config.outputIndicatorMod) {
+    switch (config.outputIndicatorMode) {
       case Constant.INDICATOR_TYPE.CURRENT_WITH_MAX_HP:
         indicatorText = String.format("%0" + maxEntityHpAmountLength + "d / %s",
             currentEntityHealth, maxEntityHealth);
@@ -119,7 +119,7 @@ public class PlayHUDMixin {
 
         // guiScale = minecraftClient.options.getGuiScale().getValue();
 
-        horizontalGuiScale = !Objects.equals(config.outputIndicatorMod, Constant.INDICATOR_TYPE.CURRENT_HP) ? 14 : 7;
+        horizontalGuiScale = !Objects.equals(config.outputIndicatorMode, Constant.INDICATOR_TYPE.CURRENT_HP) ? 14 : 7;
         verticalGuiScale = 7;
 
         centerX = lastScreen.width / 2;
