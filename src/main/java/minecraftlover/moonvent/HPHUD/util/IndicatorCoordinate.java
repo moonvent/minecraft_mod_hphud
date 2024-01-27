@@ -40,6 +40,11 @@ public class IndicatorCoordinate {
     cachedPlayerScreen = screen;
     calculateCoordinates();
   }
+
+  public Screen getCachedPlayerScreen() {
+    return cachedPlayerScreen;
+  }
+
   public int getX() {
     return x;
   }

@@ -26,7 +26,6 @@ import java.util.function.Predicate;
 @Mixin(InGameHud.class)
 public class PlayHUDMixin {
   private static final Logger LOGGER = LoggerFactory.getLogger(Constant.LOGGER_HUD_NAME);
-  private Screen lastScreen = null;
   private int maxEntityHealth;
   private String indicatorText;
   private int currentEntityHealth;
@@ -35,6 +34,9 @@ public class PlayHUDMixin {
   private int currentEntityHealthLenght;
 
   private ModConfig config;
+
+  private int previousScreenWidth = 0;
+  private int previousScreenHeight = 0;
 
   @Inject(method = "render", at = @At("RETURN"))
   private void render(DrawContext context, float tickDelta, CallbackInfo ci) {
@@ -47,7 +49,11 @@ public class PlayHUDMixin {
     config = ModConfig.getInstance();
 
     if (currentScreen != null) {
-      indicatorCoordinate.setCachedPlayerScreen(currentScreen);
+      if (previousScreenWidth != currentScreen.width || previousScreenHeight != currentScreen.height) {
+        previousScreenWidth = currentScreen.width;
+        previousScreenHeight = currentScreen.height;
+        indicatorCoordinate.setCachedPlayerScreen(currentScreen);
+      }
 
     } else {
 
