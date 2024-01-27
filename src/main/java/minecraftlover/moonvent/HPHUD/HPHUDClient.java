@@ -13,7 +13,5 @@ public class HPHUDClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        new ModConfig();
-        new IndicatorCoordinate();
     }
 }

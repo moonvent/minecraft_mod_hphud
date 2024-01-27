@@ -1,10 +1,11 @@
-0.4.20
+0.4.22
 
 1) Change config format;
 2) Add in a config a pseudo docs;
 3) Add percentage view;
 4) Add position changing;
 5) Code refactoring and optimizing;
+6) Hot reload after changing config, now, you don't need to restart minecraft after change the config, you only need to re-enter to world;
 
 0.2.12
 
