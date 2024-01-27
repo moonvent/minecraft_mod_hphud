@@ -17,6 +17,7 @@ import net.minecraft.util.math.Vec3d;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -37,6 +38,9 @@ public class PlayHUDMixin {
 
   private int previousScreenWidth = 0;
   private int previousScreenHeight = 0;
+
+  private int textWidth;
+  private int textHeight;
 
   @Inject(method = "render", at = @At("RETURN"))
   private void render(DrawContext context, float tickDelta, CallbackInfo ci) {
@@ -79,10 +83,14 @@ public class PlayHUDMixin {
 
         // guiScale = minecraftClient.options.getGuiScale().getValue();
 
+        // get width and height text, for correct display in center of screen
+        textWidth = textRenderer.getWidth(indicatorText);
+        textHeight = textRenderer.getWrappedLinesHeight(indicatorText, textWidth);
+
         context.drawText(textRenderer,
             indicatorText,
-            indicatorCoordinate.getX(),
-            indicatorCoordinate.getY(),
+            indicatorCoordinate.getX() - textWidth / 2,
+            indicatorCoordinate.getY() - textHeight / 2,
             config.indicatorColor,
             true);
       }
