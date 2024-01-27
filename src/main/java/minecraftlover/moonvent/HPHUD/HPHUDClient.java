@@ -13,5 +13,6 @@ public class HPHUDClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+
     }
 }

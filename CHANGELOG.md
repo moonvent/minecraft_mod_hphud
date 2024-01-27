@@ -1,4 +1,4 @@
-0.4.22
+0.4.23
 
 1) Change config format;
 2) Add in a config a pseudo docs;

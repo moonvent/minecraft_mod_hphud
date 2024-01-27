@@ -41,8 +41,12 @@ public class IndicatorCoordinate {
     calculateCoordinates();
   }
 
-  public Screen getCachedPlayerScreen() {
-    return cachedPlayerScreen;
+  public int getCachedPlayerScreenWidth() {
+    return (cachedPlayerScreen != null) ? cachedPlayerScreen.width : 0;
+  }
+
+  public int getCachedPlayerScreenHeight() {
+    return (cachedPlayerScreen != null) ? cachedPlayerScreen.height : 0;
   }
 
   public int getX() {

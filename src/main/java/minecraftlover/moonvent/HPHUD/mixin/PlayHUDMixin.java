@@ -52,9 +52,10 @@ public class PlayHUDMixin {
     config = ModConfig.getInstance();
 
     if (currentScreen != null) {
+      previousScreenHeight = indicatorCoordinate.getCachedPlayerScreenHeight();
+      previousScreenHeight = indicatorCoordinate.getCachedPlayerScreenWidth();
+
       if (previousScreenWidth != currentScreen.width || previousScreenHeight != currentScreen.height) {
-        previousScreenWidth = currentScreen.width;
-        previousScreenHeight = currentScreen.height;
         indicatorCoordinate.setCachedPlayerScreen(currentScreen);
       }
 

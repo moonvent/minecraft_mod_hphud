@@ -19,8 +19,8 @@ public class EnterInWorldMessageMixin {
 	private void init(CallbackInfo info) {
 		if (firstAppearInNewWorld) {
 			firstAppearInNewWorld = false;
-			new ModConfig();
 			new IndicatorCoordinate();
+			new ModConfig();
 			MinecraftClient.getInstance().player.sendMessage(Text.translatable("chat.welcome"), false);
 		}
 	}
