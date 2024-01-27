@@ -21,8 +21,8 @@ public final class ModConfig {
 
     public String indicatorPosition = "LEFT_UPPER_NEAR_CROSSHAIR";
 
-//    public int indicatorPositionCustomX = 1;
-//    public int indicatorPositionCustomY = 2;
+    // public int indicatorPositionCustomX = 1;
+    // public int indicatorPositionCustomY = 2;
 
     public static ModConfig getInstance() {
         return instance;
@@ -44,10 +44,10 @@ public final class ModConfig {
                 configProps.setProperty(Constant.ModConfigField.SEARCH_DISTANCE, String.valueOf(searchDistance));
                 configProps.setProperty(Constant.ModConfigField.INDICATOR_COLOR, String.valueOf(indicatorColor));
                 configProps.setProperty(Constant.ModConfigField.INDICATOR_POSITION, indicatorPosition);
-//                configProps.setProperty(Constant.ModConfigField.INDICATOR_POSITION_CUSTOM_X,
-//                        String.valueOf(indicatorPositionCustomX));
-//                configProps.setProperty(Constant.ModConfigField.INDICATOR_POSITION_CUSTOM_Y,
-//                        String.valueOf(indicatorPositionCustomY));
+                // configProps.setProperty(Constant.ModConfigField.INDICATOR_POSITION_CUSTOM_X,
+                // String.valueOf(indicatorPositionCustomX));
+                // configProps.setProperty(Constant.ModConfigField.INDICATOR_POSITION_CUSTOM_Y,
+                // String.valueOf(indicatorPositionCustomY));
                 save();
             } else {
                 configProps.load(new FileInputStream(CONFIG_PATH.toFile()));
@@ -56,15 +56,15 @@ public final class ModConfig {
                 searchDistance = Integer.parseInt(configProps.getProperty(Constant.ModConfigField.SEARCH_DISTANCE,
                         String.valueOf(searchDistance)));
                 indicatorColor = Integer.parseInt(configProps.getProperty(Constant.ModConfigField.INDICATOR_COLOR,
-                        String.valueOf(indicatorColor)));
+                        String.valueOf(indicatorColor)), 16);
                 indicatorPosition = configProps.getProperty(Constant.ModConfigField.INDICATOR_POSITION,
                         indicatorPosition);
-//                indicatorPositionCustomX = Integer
-//                        .parseInt(configProps.getProperty(Constant.ModConfigField.INDICATOR_POSITION_CUSTOM_X,
-//                                String.valueOf(indicatorPositionCustomX)));
-//                indicatorPositionCustomY = Integer
-//                        .parseInt(configProps.getProperty(Constant.ModConfigField.INDICATOR_POSITION_CUSTOM_Y,
-//                                String.valueOf(indicatorPositionCustomY)));
+                // indicatorPositionCustomX = Integer
+                // .parseInt(configProps.getProperty(Constant.ModConfigField.INDICATOR_POSITION_CUSTOM_X,
+                // String.valueOf(indicatorPositionCustomX)));
+                // indicatorPositionCustomY = Integer
+                // .parseInt(configProps.getProperty(Constant.ModConfigField.INDICATOR_POSITION_CUSTOM_Y,
+                // String.valueOf(indicatorPositionCustomY)));
 
             }
         } catch (IOException e) {
