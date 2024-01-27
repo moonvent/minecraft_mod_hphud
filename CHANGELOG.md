@@ -1,3 +1,9 @@
+0.3.15
+
+1) Change config format;
+2) Add in a config a pseudo docs;
+3) Add percentage view;
+
 0.2.12
 
 1) Fix available version to start mod (oldest >= 20, now >= 17)

@@ -32,6 +32,8 @@ public class PlayHUDMixin {
   private int currentEntityHealth;
   private int maxEntityHpAmountLength;
 
+  private int currentEntityHealthLenght;
+
   private int centerX;
   private int centerY;
 
@@ -41,7 +43,6 @@ public class PlayHUDMixin {
   private int textX;
   private int textY;
 
-  private int firstZerosIndex;
   private int horizontalGuiScale;
   private int verticalGuiScale;
 
@@ -52,6 +53,7 @@ public class PlayHUDMixin {
     maxEntityHealth = (int) entity.getMaxHealth();
     currentEntityHealth = (int) Math.ceil(entity.getHealth());
     maxEntityHpAmountLength = Integer.toString(maxEntityHealth).length();
+    currentEntityHealthLenght = Integer.toString(currentEntityHealth).length();
 
     if (currentEntityHealth == 0) {
       indicatorText = null;
@@ -60,18 +62,23 @@ public class PlayHUDMixin {
 
     switch (config.outputIndicatorMode) {
       case Constant.INDICATOR_TYPE.CURRENT_WITH_MAX_HP:
-        indicatorText = String.format("%0" + maxEntityHpAmountLength + "d / %s",
+        indicatorText = String.format("%s / %s",
             currentEntityHealth, maxEntityHealth);
         break;
       case Constant.INDICATOR_TYPE.CURRENT_PERCENTAGE_HP:
-        indicatorText = String.format("%03d %%",
+        indicatorText = String.format("%s %%",
             (int) Math.ceil((float) currentEntityHealth / (float) maxEntityHealth * 100.0));
         break;
       default:
-        indicatorText = String.format("%0" + maxEntityHpAmountLength + "d",
+        indicatorText = String.format("%s",
             currentEntityHealth);
         break;
     }
+
+    // if some text decrease, stay away in old position it, cause render run from left to right,
+    // and if hp was 100 and now 99, text len will decrease, and that will be annoying
+    if (currentEntityHealthLenght < maxEntityHpAmountLength)
+      indicatorText = String.format("%" + (maxEntityHpAmountLength - currentEntityHealthLenght) + "s%s", "", indicatorText);
   }
 
   @Inject(method = "render", at = @At("RETURN"))
@@ -105,17 +112,6 @@ public class PlayHUDMixin {
 
         if (indicatorText == null)
           return;
-
-        firstZerosIndex = indicatorText.indexOf(String.valueOf(currentEntityHealth));
-
-        // replace first zeros if exist it, and replace it to spaces for prettier output
-        // of indicator
-        // example response:
-        // without this -> 100 -> 100, 70 -> 70
-        // with this -> 100 -> 100, 70 -> _70 and range between different numbers equal
-        if (firstZerosIndex > -1) {
-          indicatorText = indicatorText.replaceFirst("0".repeat(firstZerosIndex), " ".repeat(firstZerosIndex));
-        }
 
         // guiScale = minecraftClient.options.getGuiScale().getValue();
 

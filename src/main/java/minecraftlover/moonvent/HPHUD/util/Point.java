@@ -85,11 +85,13 @@ class Point {
       // break;
       // case Constant.INDICATOR_POSITIONS.BOTTOM_OF_SCREEN:
       // break;
-      case Constant.INDICATOR_POSITION.CUSTOM_FROM_CENTER:
-        break;
-      case Constant.INDICATOR_POSITION.FULL_CUSTOM:
-        break;
+      // case Constant.INDICATOR_POSITION.CUSTOM_FROM_CENTER:
+      // break;
+      // case Constant.INDICATOR_POSITION.FULL_CUSTOM:
+      // break;
       default:
+        offsetX = 3;
+        offsetY = 2;
         break;
     }
   }
