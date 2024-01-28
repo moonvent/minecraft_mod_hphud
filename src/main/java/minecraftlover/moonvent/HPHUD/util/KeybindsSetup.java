@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 
 import net.minecraft.client.option.KeyBinding;
+import net.minecraft.text.Text;
 import org.lwjgl.glfw.GLFW;
 import net.minecraft.client.util.InputUtil;
 
@@ -32,9 +33,16 @@ public class KeybindsSetup {
     KeyBindingHelper.registerKeyBinding(openConfigurationMenuKey);
 
     ClientTickEvents.END_CLIENT_TICK.register(client -> {
-      if (openConfigurationMenuKey.wasPressed() && isCtrlShiftPressed() && client.player != null) {
-        client.setScreen(new ConfigurationScreen());
-        // client.setScreen(new CustomMenuScreen(Text.of("Мое меню")));
+      if (openConfigurationMenuKey.wasPressed() && client.player != null) {
+        if (isCtrlShiftPressed())
+          client.setScreen(new ConfigurationScreen());
+        else
+          MinecraftClient.getInstance().player.sendMessage(
+              Text.translatable(Constant.LocalizationKey.WARNING_IN_CHAT_ABOUT_CONFLICTS,
+                  KeybindsSetup.openConfigurationMenuKey.getBoundKeyLocalizedText(),
+                  KeybindsSetup.openConfigurationMenuKey.getBoundKeyLocalizedText()),
+              false);
+
       }
     });
   }

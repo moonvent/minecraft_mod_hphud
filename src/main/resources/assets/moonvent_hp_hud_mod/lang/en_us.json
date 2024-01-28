@@ -1,6 +1,9 @@
 {
   "chat.hphud.welcome": "[HPHUD] Thanks for playing with this mod. For configurate mod, you can press Ctrl + Shift + %s simultaneously",
+
   "category.hphud.general": "[HPHUD] Mod Keybinds (All binds start from Ctrl + Shift)",
   "key.hphud.configure_mod": "Open configure mod menu",
-  "menu.hphud.configuration": "[HPHUD] Configuration menu"
+  "menu.hphud.configuration": "[HPHUD] Configuration menu",
+
+  "chat.hphud.keybind_config_menu_warging": "If you want to enter the configuration menu of the mod [HPHUD], press Ctrl + Shift + %s. If this message appeared by mistake and you have a conflict of key combinations, you can go to the mod settings (Ctrl + Shift + %s) and change the key combination, or disable this warning."
 }

@@ -121,6 +121,10 @@ public final class Constant {
 
                                 public static final String CONFIGURATION_MENU_NAME = "menu." + MOD_NAME_FOR_LOCALIZATION
                                                                 + ".configuration";
+
+                                public static final String WARNING_IN_CHAT_ABOUT_CONFLICTS = "chat."
+                                                                + MOD_NAME_FOR_LOCALIZATION
+                                                                + ".keybind_config_menu_warging";
                 }
 
 }
