@@ -1,6 +1,6 @@
 {
-  "chat.hphud.welcome": "[HPHUD] Thanks for playing with this mod",
-  "category.hphud.general": "[HPHUD] Mod Keybinds",
+  "chat.hphud.welcome": "[HPHUD] Thanks for playing with this mod. For configurate mod, you can press Ctrl + Shift + %s simultaneously",
+  "category.hphud.general": "[HPHUD] Mod Keybinds (All binds start from Ctrl + Shift)",
   "key.hphud.configure_mod": "Open configure mod menu",
   "menu.hphud.configuration": "[HPHUD] Configuration menu"
 }

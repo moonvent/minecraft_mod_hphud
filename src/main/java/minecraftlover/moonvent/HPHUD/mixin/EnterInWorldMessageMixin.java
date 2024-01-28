@@ -3,6 +3,7 @@ package minecraftlover.moonvent.HPHUD.mixin;
 import minecraftlover.moonvent.HPHUD.config.ModConfig;
 import minecraftlover.moonvent.HPHUD.util.Constant;
 import minecraftlover.moonvent.HPHUD.util.IndicatorCoordinate;
+import minecraftlover.moonvent.HPHUD.util.KeybindsSetup;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.text.Text;
@@ -22,7 +23,7 @@ public class EnterInWorldMessageMixin {
 			firstAppearInNewWorld = false;
 			new IndicatorCoordinate();
 			new ModConfig();
-			MinecraftClient.getInstance().player.sendMessage(Text.translatable(Constant.LocalizationKey.GREETINGS_IN_WORLD),
+			MinecraftClient.getInstance().player.sendMessage(Text.translatable(Constant.LocalizationKey.GREETINGS_IN_WORLD, KeybindsSetup.openConfigurationMenuKey.getBoundKeyLocalizedText()),
 					false);
 		}
 	}

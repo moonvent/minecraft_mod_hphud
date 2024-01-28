@@ -12,7 +12,7 @@ import net.minecraft.client.MinecraftClient;
 
 public class KeybindsSetup {
 
-  private KeyBinding openConfigurationMenuKey;
+  public static KeyBinding openConfigurationMenuKey;
 
   public KeybindsSetup() {
     addNewKeyBindings();

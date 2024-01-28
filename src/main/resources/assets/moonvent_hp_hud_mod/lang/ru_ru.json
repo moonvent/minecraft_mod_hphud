@@ -1,6 +1,6 @@
 {
-  "chat.hphud.welcome": "[HPHUD] Спасибо что играете с этим модом",
-  "category.hphud.general": "[HPHUD] Горячие клавиши мода",
+  "chat.hphud.welcome": "[HPHUD] Спасибо что играете с этим модом. Для настройки мода нажмите сочетание клавиш Ctrl + Shift + %s (англ. раскладка) одновременно",
+  "category.hphud.general": "[HPHUD] Горячие клавиши мода (Все сочетания начинаются с Ctrl + Shift)",
   "key.hphud.configure_mod": "Открыть меню конфигурации мода",
   "menu.hphud.configuration": "[HPHUD] Конфигурационное меню"
 }

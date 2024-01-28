@@ -1,8 +1,8 @@
-# HPHUD
+# <span style="color: #FFAFFF">HPHUD</span>
 
 ---
 
-## Description
+## <span style="color: #FFAFFF">Description</span>
 
 This mod allows you to see the amount of health points of a mob, player, or any other entity that has health points. The goal of the mod is to provide a more convenient way to view health points than other health indicators. Unlike other mods that display health points in the top left or top center of the screen, this mod displays the health points near the player's crosshair. This is especially useful for large monitors with small interface sizes or when the mob itself is large
 
@@ -18,33 +18,32 @@ Mod holding on curseforge: https://curseforge.com/minecraft/mc-mods/hphud
 
 ---
 
-## Roadmap
+## <span style="color: #FFAFFF">Roadmap</span>
 
 Here is a roadmap of future changes:
 
-[ Completed ] Add the ability to change the color of the indicator.
+**<span style="color: green">[ Completed ]</span>** Add the ability to change the color of the indicator.
 
-[ Completed ] Add the ability to change the position of the indicator, including various positions.
+**<span style="color: green">[ Completed ]</span>** Add the ability to change the position of the indicator, including various positions.
 
-[ Completed ] Add percentage view.
+**<span style="color: green">[ Completed ]</span>** Add percentage view.
 
-[ In Work ] Add menu in game to hot switch mod configuration.
+**<span style="color: #1ECBE1">[ In Work ]</span>** Add menu in game to hot switch mod configuration.
 
 Thank you for your attention and enjoy using my mod! If you have any suggestions for other features that could be added to make the mod even more convenient and user-friendly, please feel free to share them with me in a private message. I am always open to feedback and suggestions. Let's keep the conversation respectful and avoid violating any of the website's rules or global laws. 
 
 ---
 
-## Some interested advices
+## <span style="color: red">README (Some interested advices)</span>
 
-### Warning is begin
+**<span style="color: yellow">Warning is begin</span>**
 
 If you migrate from vesion 0.2.~ please, remove the file: 
-
 `your_minecraft_folder/config/HPHUD.cfg`
 
 Before start minecraft with new mod version
 
-### Warning is end
+**<span style="color: yellow">Warning is end</span>**
 
 From 0.4.23 version of mod (if it's not on site, just wait it, it's premoderate status) I'm add a config file in good format and make a hot reload with it, you can just change this config file, which exist in: 
 
@@ -56,7 +55,7 @@ Exactly config file and all documentation I left above, and now, you can see som
 
 ---
 
-# Examples
+## <span style="color: #FFAFFF">Examples</span>
 
 ![Mod with default settings](https://media.forgecdn.net/attachments/795/180/2024-01-23_22.png)
 ![Mod with default settings at night](https://media.forgecdn.net/attachments/795/151/2024-01-23_19.png)
@@ -65,7 +64,7 @@ Exactly config file and all documentation I left above, and now, you can see som
 
 ---
 
-# Config file and doc to them
+## <span style="color: #FFAFFF">Config file and doc to them</span>
 
 ```
 #[HPHUP]
@@ -135,7 +134,7 @@ searchDistance=20
 ```
 ---
 
-## Little offtop about mod
+## <span style="color: #FFAFFF">Little offtop about mod</span>
 
 My first modification of mod (I dream about it from end of school)
 
