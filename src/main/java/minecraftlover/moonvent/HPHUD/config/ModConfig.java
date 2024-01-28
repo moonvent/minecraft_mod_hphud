@@ -17,7 +17,7 @@ public final class ModConfig {
 
     public int searchDistance = 20;
 
-    public String indicatorColor = "FFAFFF";
+    public static String indicatorColor = "FFAFFF";
 
     public String indicatorPosition = "LEFT_UPPER_NEAR_CROSSHAIR";
 

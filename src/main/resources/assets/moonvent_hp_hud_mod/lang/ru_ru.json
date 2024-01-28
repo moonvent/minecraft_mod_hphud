@@ -4,7 +4,12 @@
   "category.hphud.general": "[HPHUD] Горячие клавиши мода (Все сочетания начинаются с Ctrl + Shift)",
   "key.hphud.configure_mod": "Открыть меню конфигурации мода",
   "menu.hphud.configuration": "[HPHUD] Конфигурационное меню",
+  "textfield.hphud.indicatorcolor": "Цвет индикатора",
+  "": "",
+  "": "",
+  "": "",
 
   "chat.hphud.keybind_config_menu_warging": "Если вы хотите зайти в меню конфигурации мода [HPHUD], нажмите Ctrl + Shift + %s, если сообщение появилось случайно и у вас конфликт сочетаний, то вы можете зайти в настройки мода (Ctrl + Shift + %s) и поменять сочетание клавиш, или выключить данное предупреждение"
+
 }
 
