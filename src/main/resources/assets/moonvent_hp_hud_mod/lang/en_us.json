@@ -1,5 +1,6 @@
 {
   "chat.hphud.welcome": "[HPHUD] Thanks for playing with this mod",
   "category.hphud.general": "[HPHUD] Mod Keybinds",
-  "key.hphud.configure_mod": "Open configure mod menu"
+  "key.hphud.configure_mod": "Open configure mod menu",
+  "menu.hphud.configuration": "[HPHUD] Configuration menu"
 }

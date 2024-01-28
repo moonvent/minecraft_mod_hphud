@@ -1,5 +1,6 @@
 package minecraftlover.moonvent.HPHUD.util;
 
+import minecraftlover.moonvent.HPHUD.screen.ConfigurationScreen;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 
@@ -32,7 +33,7 @@ public class KeybindsSetup {
 
     ClientTickEvents.END_CLIENT_TICK.register(client -> {
       if (openConfigurationMenuKey.wasPressed() && isCtrlShiftPressed() && client.player != null) {
-          System.out.println("keks");
+        client.setScreen(new ConfigurationScreen());
         // client.setScreen(new CustomMenuScreen(Text.of("Мое меню")));
       }
     });

@@ -1,3 +1,9 @@
+0.5.30
+
+1) Add configuration menu;
+2) A little refactoring;
+
+
 0.4.23
 
 1) Change config format;
@@ -7,10 +13,12 @@
 5) Code refactoring and optimizing;
 6) Hot reload after changing config, now, you don't need to restart minecraft after change the config, you only need to re-enter to world;
 
+
 0.2.12
 
 1) Fix available version to start mod (oldest >= 20, now >= 17)
 2) Add config file, and work with it, in config file player can change a distance to search entity for hp, change color of indicator;
+
 
 0.1.9
 

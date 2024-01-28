@@ -1,6 +1,7 @@
 {
   "chat.hphud.welcome": "[HPHUD] Спасибо что играете с этим модом",
   "category.hphud.general": "[HPHUD] Горячие клавиши мода",
-  "key.hphud.configure_mod": "Открыть меню конфигурации мода"
+  "key.hphud.configure_mod": "Открыть меню конфигурации мода",
+  "menu.hphud.configuration": "[HPHUD] Конфигурационное меню"
 }
 
