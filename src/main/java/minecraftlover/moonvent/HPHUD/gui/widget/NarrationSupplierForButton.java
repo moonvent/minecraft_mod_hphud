@@ -1,4 +1,4 @@
-package minecraftlover.moonvent.HPHUD.screen;
+package minecraftlover.moonvent.HPHUD.gui.widget;
 
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.text.MutableText;

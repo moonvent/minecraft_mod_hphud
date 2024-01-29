@@ -10,7 +10,7 @@ public final class Constant {
     public static String MOD_NAME = "HPHUD";
     public static String MOD_NAME_FOR_LOCALIZATION = "hphud";
 
-    public static final String MOD_ID = "minecraftlover_moonvent_hphud";
+    public static final String MOD_ID = "moonvent_hp_hud_mod";
 
     public static final String LOGGER_HUD_NAME = MOD_NAME + "| HUD";
 
@@ -169,6 +169,29 @@ public final class Constant {
 
         public static final String INDICATOR_COLOR_TEXTFIELD = "textfield."
             + MOD_NAME_FOR_LOCALIZATION + ".indicatorcolor";
+
+        public static final String MODE_BUTTON_CURRENT_HP = "button."
+                + MOD_NAME_FOR_LOCALIZATION +
+                ".currentHP";
+
+        public static final String MODE_BUTTON_CURRENT_WITH_MAX_HP = "button."
+                + MOD_NAME_FOR_LOCALIZATION +
+                ".currentWithMaxHP";
+
+        public static final String MODE_BUTTON_CURRENT_PERCENTAGE_HP = "button."
+                + MOD_NAME_FOR_LOCALIZATION +
+                ".currentPercentageHP";
+
+        public static final String MODE_BUTTON_DESCRIPTION = "button."
+                + MOD_NAME_FOR_LOCALIZATION +
+                ".mods";
+    }
+
+    public static final class ResourcesPath {
+        public static final Integer MOD_TEXTURE_SIZE = 64;
+        public static final String MOD_CURRENT_HP = "textures/gui/modes/current_hp.png";
+        public static final String MOD_CURRENT_WITH_MAX_HP = "textures/gui/modes/current_with_max_hp.png";
+        public static final String MOD_CURRENT_PERCANTAGE_HP = "textures/gui/modes/current_percentage_hp.png";
     }
 
 }
