@@ -16,9 +16,6 @@
 	"entrypoints": {
 		"client": [
 			"minecraftlover.moonvent.HPHUD.HPHUDClient"
-		],
-		"fabric-datagen": [
-			"minecraftlover.moonvent.HPHUD.HPHUDDataGenerator"
 		]
 	},
 	"mixins": [
@@ -26,7 +23,7 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.15.3",
-		"minecraft": "~1.20.4",
+		"minecraft": ">=1.19",
 		"java": ">=17",
 		"fabric-api": "*"
 	}

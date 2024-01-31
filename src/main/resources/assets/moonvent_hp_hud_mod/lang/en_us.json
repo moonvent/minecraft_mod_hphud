@@ -12,6 +12,18 @@
   "button.hphud.currentWithMaxHP": "Current with max HP",
   "button.hphud.currentPercentageHP": "Current percentage HP",
   "button.hphud.mods": "Mode",
+  "button.hphud.LEFT_UPPER_NEAR_CROSSHAIR": "left upper",
+  "button.hphud.LEFT_NEAR_CROSSHAIR": "left",
+  "button.hphud.LEFT_BOTTOM_NEAR_CROSSHAIR": "left bottom",
+  "button.hphud.BOTTOM_NEAR_CROSSHAIR": "bottom",
+  "button.hphud.RIGHT_BOTTOM_NEAR_CROSSHAIR": "right bottom",
+  "button.hphud.RIGHT_NEAR_CROSSHAIR": "right",
+  "button.hphud.RIGHT_UPPER_NEAR_CROSSHAIR": "right upper",
+  "button.hphud.TOP_NEAR_CROSSHAIR": "top",
+  "button.hphud.position": "Position",
+
+  "scroll.hphud.visibility_range": "Visibility range (in blocks)",
+  "scroll.hphud.visibility_range_value": "Visibility range (in blocks): %s",
 
   "chat.hphud.keybind_config_menu_warging": "If you want to enter the configuration menu of the mod [HPHUD], press Ctrl + Shift + %s. If this message appeared by mistake and you have a conflict of key combinations, you can go to the mod settings (Ctrl + Shift + %s) and change the key combination, or disable this warning."
 }

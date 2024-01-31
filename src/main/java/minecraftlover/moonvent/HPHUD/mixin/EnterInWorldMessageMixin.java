@@ -14,7 +14,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ServerPlayNetworkHandler.class)
 public class EnterInWorldMessageMixin {
-
 	private boolean firstAppearInNewWorld = true;
 
 	@Inject(at = @At("RETURN"), method = "onPlayerMove")

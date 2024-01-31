@@ -88,11 +88,11 @@ public class IndicatorCoordinate {
         break;
       case Constant.INDICATOR_POSITION.LEFT_BOTTOM_NEAR_CROSSHAIR:
         offsetXMultiplier = 3;
-        offsetYMultiplier = -2;
+        offsetYMultiplier = -3;
         break;
       case Constant.INDICATOR_POSITION.RIGHT_BOTTOM_NEAR_CROSSHAIR:
         offsetXMultiplier = -3;
-        offsetYMultiplier = -2;
+        offsetYMultiplier = -3;
         break;
       case Constant.INDICATOR_POSITION.LEFT_NEAR_CROSSHAIR:
         offsetXMultiplier = 3;
@@ -108,7 +108,7 @@ public class IndicatorCoordinate {
         break;
       case Constant.INDICATOR_POSITION.BOTTOM_NEAR_CROSSHAIR:
         offsetXMultiplier = 0;
-        offsetYMultiplier = -2;
+        offsetYMultiplier = -3;
         break;
       // case Constant.INDICATOR_POSITIONS.RIGHT_UPPER_OF_SCREEN:
       // // offsetX = 0;

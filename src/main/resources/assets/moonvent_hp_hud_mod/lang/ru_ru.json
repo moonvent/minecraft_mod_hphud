@@ -2,16 +2,29 @@
   "chat.hphud.welcome": "[HPHUD] Спасибо что играете с этим модом. Для настройки мода нажмите сочетание клавиш Ctrl + Shift + %s (англ. раскладка) одновременно",
 
   "category.hphud.general": "[HPHUD] Горячие клавиши мода (Все сочетания начинаются с Ctrl + Shift)",
+
   "key.hphud.configure_mod": "Открыть меню конфигурации мода",
+
   "menu.hphud.configuration": "[HPHUD] Конфигурационное меню",
+
   "textfield.hphud.indicatorcolor": "Цвет индикатора",
+
   "button.hphud.currentHP": "Текущее здоровье",
-  "button.hphud.currentWithMaxHP": "Текущее с максимальным",
-  "button.hphud.currentPercentageHP": "Текущее в процентах",
+  "button.hphud.currentWithMaxHP": "Текущее здоровье с максимальным",
+  "button.hphud.currentPercentageHP": "Текущее здоровье в процентах",
   "button.hphud.mods": "Режим",
-  "": "",
-  "": "",
-  "": "",
+  "button.hphud.LEFT_UPPER_NEAR_CROSSHAIR": "вверх лево",
+  "button.hphud.LEFT_NEAR_CROSSHAIR": "лево",
+  "button.hphud.LEFT_BOTTOM_NEAR_CROSSHAIR": "низ лево",
+  "button.hphud.BOTTOM_NEAR_CROSSHAIR": "низ",
+  "button.hphud.RIGHT_BOTTOM_NEAR_CROSSHAIR": "низ право",
+  "button.hphud.RIGHT_NEAR_CROSSHAIR": "право",
+  "button.hphud.RIGHT_UPPER_NEAR_CROSSHAIR": "вверх право",
+  "button.hphud.TOP_NEAR_CROSSHAIR": "вверх",
+  "button.hphud.position": "Позиция",
+
+  "scroll.hphud.visibility_range": "Дальность видимости (в блоках)",
+  "scroll.hphud.visibility_range_value": "Дальность видимости (в блоках): %s",
 
   "chat.hphud.keybind_config_menu_warging": "Если вы хотите зайти в меню конфигурации мода [HPHUD], нажмите Ctrl + Shift + %s, если сообщение появилось случайно и у вас конфликт сочетаний, то вы можете зайти в настройки мода (Ctrl + Shift + %s) и поменять сочетание клавиш, или выключить данное предупреждение"
 

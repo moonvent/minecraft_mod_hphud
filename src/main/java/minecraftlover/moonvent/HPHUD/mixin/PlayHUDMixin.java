@@ -49,6 +49,9 @@ public class PlayHUDMixin {
     Screen currentScreen = minecraftClient.currentScreen;
     IndicatorCoordinate indicatorCoordinate = IndicatorCoordinate.getInstance();
 
+    if (indicatorCoordinate == null)
+      return;
+
     config = ModConfig.getInstance();
 
     if (currentScreen != null) {
