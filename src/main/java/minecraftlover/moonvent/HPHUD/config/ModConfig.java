@@ -13,13 +13,13 @@ public final class ModConfig {
     // for singleton
     private static ModConfig instance;
 
-    public String outputIndicatorMode = "currentHP";
+    public static String outputIndicatorMode = "currentHP";
 
-    public int searchDistance = 20;
+    public static int searchDistance = 20;
 
     public static String indicatorColor = "FFAFFF";
 
-    public String indicatorPosition = "LEFT_UPPER_NEAR_CROSSHAIR";
+    public static String indicatorPosition = "LEFT_UPPER_NEAR_CROSSHAIR";
 
     // public int indicatorPositionCustomX = 1;
     // public int indicatorPositionCustomY = 2;

@@ -1,5 +1,6 @@
 package minecraftlover.moonvent.HPHUD.gui.screen;
 
+import minecraftlover.moonvent.HPHUD.config.ModConfig;
 import minecraftlover.moonvent.HPHUD.util.Constant;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
@@ -138,10 +139,15 @@ public class ConfigurationScreen extends Screen {
     currentY += ResourcesPath.MOD_TEXTURE_SIZE + spacing;
 
     int sliderWidth = widgetWidth * 2;
-    SliderWidget sliderWidget = new SliderWidget(this.width / 2 - sliderWidth / 2, currentY, sliderWidth, rowHeight, Text.translatable(LocalizationKey.VISIBILITY_RANGE), 0.2) {
+    SliderWidget sliderWidget = new SliderWidget(this.width / 2 - sliderWidth / 2,
+        currentY,
+        sliderWidth,
+        rowHeight,
+        Text.translatable(LocalizationKey.VISIBILITY_RANGE_VALUE, ModConfig.searchDistance),
+            ModConfig.searchDistance / (float)MaxSearchDistance) {
       @Override
       protected void updateMessage() {
-        setMessage(Text.translatable(LocalizationKey.VISIBILITY_RANGE_VALUE, (int)(value * MaxSearchDistance)));
+        setMessage(Text.translatable(LocalizationKey.VISIBILITY_RANGE_VALUE, (int) (value * MaxSearchDistance)));
       }
 
       @Override
