@@ -1,5 +1,6 @@
 package minecraftlover.moonvent.HPHUD.util;
 
+import minecraftlover.moonvent.HPHUD.config.ModConfig;
 import minecraftlover.moonvent.HPHUD.gui.screen.ConfigurationScreen;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
@@ -36,7 +37,7 @@ public class KeybindsSetup {
       if (openConfigurationMenuKey.wasPressed() && client.player != null) {
         if (isCtrlShiftPressed())
           client.setScreen(new ConfigurationScreen());
-        else
+        else if (ModConfig.warningAfterPressMenuKey)
           MinecraftClient.getInstance().player.sendMessage(
               Text.translatable(Constant.LocalizationKey.WARNING_IN_CHAT_ABOUT_CONFLICTS,
                   KeybindsSetup.openConfigurationMenuKey.getBoundKeyLocalizedText(),

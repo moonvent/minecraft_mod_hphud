@@ -22,8 +22,9 @@ public class EnterInWorldMessageMixin {
 			firstAppearInNewWorld = false;
 			new IndicatorCoordinate();
 			new ModConfig();
-			MinecraftClient.getInstance().player.sendMessage(Text.translatable(Constant.LocalizationKey.GREETINGS_IN_WORLD, KeybindsSetup.openConfigurationMenuKey.getBoundKeyLocalizedText()),
-					false);
+			if (ModConfig.greetingsAfterEnterInWorld)
+				MinecraftClient.getInstance().player.sendMessage(Text.translatable(Constant.LocalizationKey.GREETINGS_IN_WORLD, KeybindsSetup.openConfigurationMenuKey.getBoundKeyLocalizedText()),
+						false);
 		}
 	}
 }

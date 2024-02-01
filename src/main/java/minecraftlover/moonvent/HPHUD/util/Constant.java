@@ -103,8 +103,9 @@ public final class Constant {
       +
       "Thank you for playing with this mod!\n";
 
-  public static final Integer MaxSearchDistance = 50;
-  public static final Integer minSearchDistance = 5;
+  public static final Integer MAX_SEARCH_DISTANCE = 50;
+  public static final Integer MIN_SEARCH_DISTANCE = 1;
+  public static final Integer COLOR_LENGTH = 6;
 
   public static final class INDICATOR_TYPE {
     public static final String CURRENT_HP = "currentHP";
@@ -151,8 +152,8 @@ public final class Constant {
     public static final String SEARCH_DISTANCE = "searchDistance";
     public static final String INDICATOR_COLOR = "indicatorColor";
     public static final String INDICATOR_POSITION = "indicatorPosition";
-    public static final String INDICATOR_POSITION_CUSTOM_X = "indicatorPositionCustomX";
-    public static final String INDICATOR_POSITION_CUSTOM_Y = "indicatorPositionCustomY";
+    public static final String WARNING_AFTER_PRESS_MENU_KEY = "warningAfterPressMenuKey";
+    public static final String GREETINGS_AFTER_ENTER_IN_WORLD = "greetingsAfterEnterInWorld";
   }
 
   public static final class LocalizationKey {
@@ -227,7 +228,8 @@ public final class Constant {
         INDICATOR_POSITION.LEFT_NEAR_CROSSHAIR;
 
     public static final String VISIBILITY_RANGE = "scroll." + MOD_NAME_FOR_LOCALIZATION + ".visibility_range";
-    public static final String VISIBILITY_RANGE_VALUE = "scroll." + MOD_NAME_FOR_LOCALIZATION + ".visibility_range_value";
+    public static final String VISIBILITY_RANGE_VALUE = "scroll." + MOD_NAME_FOR_LOCALIZATION
+        + ".visibility_range_value";
 
   }
 
