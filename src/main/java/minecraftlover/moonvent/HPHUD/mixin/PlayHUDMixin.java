@@ -115,11 +115,11 @@ public class PlayHUDMixin {
     }
 
     switch (config.outputIndicatorMode) {
-      case Constant.INDICATOR_TYPE.CURRENT_WITH_MAX_HP:
+      case Constant.IndicatorType.CURRENT_WITH_MAX_HP:
         indicatorText = String.format("%s / %s",
             currentEntityHealth, maxEntityHealth);
         break;
-      case Constant.INDICATOR_TYPE.CURRENT_PERCENTAGE_HP:
+      case Constant.IndicatorType.CURRENT_PERCENTAGE_HP:
         indicatorText = String.format("%s %%",
             (int) Math.ceil((float) currentEntityHealth / (float) maxEntityHealth * 100.0));
         break;

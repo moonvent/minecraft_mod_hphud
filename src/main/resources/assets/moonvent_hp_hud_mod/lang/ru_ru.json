@@ -9,6 +9,9 @@
 
   "textfield.hphud.indicatorcolor": "Цвет индикатора",
 
+  "checkbox.hphud.warningAfterPressMenuKey": "Предупреждение о недожатии кнопки открытия меню",
+  "checkbox.hphud.greetingsAfterEnterInWorld": "Сообщение приветствия после входа в мир",
+
   "button.hphud.currentHP": "Текущее здоровье",
   "button.hphud.currentWithMaxHP": "Текущее здоровье с максимальным",
   "button.hphud.currentPercentageHP": "Текущее здоровье в процентах",

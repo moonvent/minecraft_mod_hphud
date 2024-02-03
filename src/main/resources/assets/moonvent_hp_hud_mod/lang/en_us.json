@@ -8,6 +8,9 @@
 
   "textfield.hphud.indicatorcolor": "Indicator color",
 
+  "checkbox.hphud.warningAfterPressMenuKey": "Warning about not complete keybind for open config menu",
+  "checkbox.hphud.greetingsAfterEnterInWorld": "Chat message of greetings after enter in the world",
+
   "button.hphud.currentHP": "Current HP",
   "button.hphud.currentWithMaxHP": "Current with max HP",
   "button.hphud.currentPercentageHP": "Current percentage HP",

@@ -62,7 +62,7 @@ public class IndicatorCoordinate {
 
     calculateOffsetCoordinates();
 
-    horizontalGuiScale = !Objects.equals(config.outputIndicatorMode, Constant.INDICATOR_TYPE.CURRENT_HP) ? 14 : 7;
+    horizontalGuiScale = !Objects.equals(config.outputIndicatorMode, Constant.IndicatorType.CURRENT_HP) ? 14 : 7;
     verticalGuiScale = 7;
 
     centerX = cachedPlayerScreen.width / 2;
@@ -78,35 +78,35 @@ public class IndicatorCoordinate {
   private void calculateOffsetCoordinates() {
 
     switch (config.indicatorPosition) {
-      case Constant.INDICATOR_POSITION.LEFT_UPPER_NEAR_CROSSHAIR:
+      case Constant.IndicatorPosition.LEFT_UPPER_NEAR_CROSSHAIR:
         offsetXMultiplier = 3;
         offsetYMultiplier = 2;
         break;
-      case Constant.INDICATOR_POSITION.RIGHT_UPPER_NEAR_CROSSHAIR:
+      case Constant.IndicatorPosition.RIGHT_UPPER_NEAR_CROSSHAIR:
         offsetXMultiplier = -3;
         offsetYMultiplier = 2;
         break;
-      case Constant.INDICATOR_POSITION.LEFT_BOTTOM_NEAR_CROSSHAIR:
+      case Constant.IndicatorPosition.LEFT_BOTTOM_NEAR_CROSSHAIR:
         offsetXMultiplier = 3;
         offsetYMultiplier = -3;
         break;
-      case Constant.INDICATOR_POSITION.RIGHT_BOTTOM_NEAR_CROSSHAIR:
+      case Constant.IndicatorPosition.RIGHT_BOTTOM_NEAR_CROSSHAIR:
         offsetXMultiplier = -3;
         offsetYMultiplier = -3;
         break;
-      case Constant.INDICATOR_POSITION.LEFT_NEAR_CROSSHAIR:
+      case Constant.IndicatorPosition.LEFT_NEAR_CROSSHAIR:
         offsetXMultiplier = 3;
         offsetYMultiplier = 0;
         break;
-      case Constant.INDICATOR_POSITION.RIGHT_NEAR_CROSSHAIR:
+      case Constant.IndicatorPosition.RIGHT_NEAR_CROSSHAIR:
         offsetXMultiplier = -3;
         offsetYMultiplier = 0;
         break;
-      case Constant.INDICATOR_POSITION.TOP_NEAR_CROSSHAIR:
+      case Constant.IndicatorPosition.TOP_NEAR_CROSSHAIR:
         offsetXMultiplier = 0;
         offsetYMultiplier = 2;
         break;
-      case Constant.INDICATOR_POSITION.BOTTOM_NEAR_CROSSHAIR:
+      case Constant.IndicatorPosition.BOTTOM_NEAR_CROSSHAIR:
         offsetXMultiplier = 0;
         offsetYMultiplier = -3;
         break;

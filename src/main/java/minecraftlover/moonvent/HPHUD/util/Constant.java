@@ -107,13 +107,13 @@ public final class Constant {
   public static final Integer MIN_SEARCH_DISTANCE = 1;
   public static final Integer COLOR_LENGTH = 6;
 
-  public static final class INDICATOR_TYPE {
+  public static final class IndicatorType {
     public static final String CURRENT_HP = "currentHP";
     public static final String CURRENT_WITH_MAX_HP = "currentWithMaxHP";
     public static final String CURRENT_PERCENTAGE_HP = "currentPercentageHP";
   }
 
-  public static final class INDICATOR_POSITION {
+  public static final class IndicatorPosition {
     public static final String LEFT_UPPER_NEAR_CROSSHAIR = "LEFT_UPPER_NEAR_CROSSHAIR";
     public static final String RIGHT_UPPER_NEAR_CROSSHAIR = "RIGHT_UPPER_NEAR_CROSSHAIR";
     public static final String LEFT_BOTTOM_NEAR_CROSSHAIR = "LEFT_BOTTOM_NEAR_CROSSHAIR";
@@ -159,72 +159,80 @@ public final class Constant {
         + MOD_NAME_FOR_LOCALIZATION +
         ".currentHP";
 
-    public static final String MODE_BUTTON_CURRENT_WITH_MAX_HP = "button."
+    public static final String MODE_BUTTON_CURRENT_WITH_MAX_HP = BUTTON_KEY
         + MOD_NAME_FOR_LOCALIZATION +
         ".currentWithMaxHP";
 
-    public static final String MODE_BUTTON_CURRENT_PERCENTAGE_HP = "button."
+    public static final String MODE_BUTTON_CURRENT_PERCENTAGE_HP = BUTTON_KEY
         + MOD_NAME_FOR_LOCALIZATION +
         ".currentPercentageHP";
 
-    public static final String MODE_BUTTON_DESCRIPTION = "button."
+    public static final String MODE_BUTTON_DESCRIPTION = BUTTON_KEY
         + MOD_NAME_FOR_LOCALIZATION +
         ".mods";
-    public static final String MODE_BUTTON_POSITION = "button."
+    public static final String MODE_BUTTON_POSITION = BUTTON_KEY
         + MOD_NAME_FOR_LOCALIZATION +
         ".position";
 
-    public static final String LEFT_UPPER_NEAR_CROSSHAIR = "button."
+    public static final String LEFT_UPPER_NEAR_CROSSHAIR = BUTTON_KEY
         + MOD_NAME_FOR_LOCALIZATION
         + "." +
-        INDICATOR_POSITION.LEFT_UPPER_NEAR_CROSSHAIR;
-    public static final String RIGHT_UPPER_NEAR_CROSSHAIR = "button."
+        IndicatorPosition.LEFT_UPPER_NEAR_CROSSHAIR;
+    public static final String RIGHT_UPPER_NEAR_CROSSHAIR = BUTTON_KEY
         + MOD_NAME_FOR_LOCALIZATION
         + "." +
-        INDICATOR_POSITION.RIGHT_UPPER_NEAR_CROSSHAIR;
-    public static final String LEFT_BOTTOM_NEAR_CROSSHAIR = "button."
+        IndicatorPosition.RIGHT_UPPER_NEAR_CROSSHAIR;
+    public static final String LEFT_BOTTOM_NEAR_CROSSHAIR = BUTTON_KEY
         + MOD_NAME_FOR_LOCALIZATION
         + "." +
-        INDICATOR_POSITION.LEFT_BOTTOM_NEAR_CROSSHAIR;
-    public static final String RIGHT_BOTTOM_NEAR_CROSSHAIR = "button."
+        IndicatorPosition.LEFT_BOTTOM_NEAR_CROSSHAIR;
+    public static final String RIGHT_BOTTOM_NEAR_CROSSHAIR = BUTTON_KEY
         + MOD_NAME_FOR_LOCALIZATION
         + "." +
-        INDICATOR_POSITION.RIGHT_BOTTOM_NEAR_CROSSHAIR;
-    public static final String RIGHT_NEAR_CROSSHAIR = "button."
+        IndicatorPosition.RIGHT_BOTTOM_NEAR_CROSSHAIR;
+    public static final String RIGHT_NEAR_CROSSHAIR = BUTTON_KEY
         + MOD_NAME_FOR_LOCALIZATION
         + "." +
-        INDICATOR_POSITION.RIGHT_NEAR_CROSSHAIR;
-    public static final String TOP_NEAR_CROSSHAIR = "button."
+        IndicatorPosition.RIGHT_NEAR_CROSSHAIR;
+    public static final String TOP_NEAR_CROSSHAIR = BUTTON_KEY
         + MOD_NAME_FOR_LOCALIZATION
         + "." +
-        INDICATOR_POSITION.TOP_NEAR_CROSSHAIR;
-    public static final String BOTTOM_NEAR_CROSSHAIR = "button."
+        IndicatorPosition.TOP_NEAR_CROSSHAIR;
+    public static final String BOTTOM_NEAR_CROSSHAIR = BUTTON_KEY
         + MOD_NAME_FOR_LOCALIZATION
         + "." +
-        INDICATOR_POSITION.BOTTOM_NEAR_CROSSHAIR;
-    public static final String LEFT_NEAR_CROSSHAIR = "button."
+        IndicatorPosition.BOTTOM_NEAR_CROSSHAIR;
+    public static final String LEFT_NEAR_CROSSHAIR = BUTTON_KEY
         + MOD_NAME_FOR_LOCALIZATION
         + "." +
-        INDICATOR_POSITION.LEFT_NEAR_CROSSHAIR;
+        IndicatorPosition.LEFT_NEAR_CROSSHAIR;
 
     public static final String VISIBILITY_RANGE_VALUE = "scroll." + MOD_NAME_FOR_LOCALIZATION
         + ".visibility_range_value";
+
+    public static final String WARNING_AFTER_PRESS_MENU_KEY = "checkbox." + MOD_NAME_FOR_LOCALIZATION
+            + ".warningAfterPressMenuKey";
+
+    public static final String GREETINGS_AFTER_ENTER_IN_WORLD = "checkbox." + MOD_NAME_FOR_LOCALIZATION
+            + ".greetingsAfterEnterInWorld";
 
   }
 
   public static final class ResourcesPath {
     public static final Integer MOD_TEXTURE_SIZE = 64;
-    public static final String MOD_CURRENT_HP = "textures/gui/modes/current_hp.png";
-    public static final String MOD_CURRENT_WITH_MAX_HP = "textures/gui/modes/current_with_max_hp.png";
-    public static final String MOD_CURRENT_PERCANTAGE_HP = "textures/gui/modes/current_percentage_hp.png";
-    public static final String RIGHT_BOTTOM_NEAR_CROSSHAIR = "textures/gui/position/right_bottom.png";
-    public static final String RIGHT_UPPER_NEAR_CROSSHAIR = "textures/gui/position/right_upper.png";
-    public static final String LEFT_BOTTOM_NEAR_CROSSHAIR = "textures/gui/position/left_bottom.png";
-    public static final String LEFT_UPPER_NEAR_CROSSHAIR = "textures/gui/position/left_upper.png";
-    public static final String BOTTOM_NEAR_CROSSHAIR = "textures/gui/position/bottom.png";
-    public static final String TOP_NEAR_CROSSHAIR = "textures/gui/position/top.png";
-    public static final String RIGHT_NEAR_CROSSHAIR = "textures/gui/position/right.png";
-    public static final String LEFT_NEAR_CROSSHAIR = "textures/gui/position/left.png";
+    public static final String MODES_FOLDER = "textures/gui/modes/";
+    public static final String POSITION_FOLDER = "textures/gui/position/";
+    public static final String MOD_CURRENT_HP = MODES_FOLDER + "current_hp.png";
+    public static final String MOD_CURRENT_WITH_MAX_HP = MODES_FOLDER + "current_with_max_hp.png";
+    public static final String MOD_CURRENT_PERCANTAGE_HP = MODES_FOLDER + "current_percentage_hp.png";
+    public static final String RIGHT_BOTTOM_NEAR_CROSSHAIR = POSITION_FOLDER + "right_bottom.png";
+    public static final String RIGHT_UPPER_NEAR_CROSSHAIR = POSITION_FOLDER + "right_upper.png";
+    public static final String LEFT_BOTTOM_NEAR_CROSSHAIR = POSITION_FOLDER + "left_bottom.png";
+    public static final String LEFT_UPPER_NEAR_CROSSHAIR = POSITION_FOLDER + "left_upper.png";
+    public static final String BOTTOM_NEAR_CROSSHAIR = POSITION_FOLDER + "bottom.png";
+    public static final String TOP_NEAR_CROSSHAIR = POSITION_FOLDER + "top.png";
+    public static final String RIGHT_NEAR_CROSSHAIR = POSITION_FOLDER + "right.png";
+    public static final String LEFT_NEAR_CROSSHAIR = POSITION_FOLDER + "left.png";
   }
 
   public static final class ConfigurationMenu {

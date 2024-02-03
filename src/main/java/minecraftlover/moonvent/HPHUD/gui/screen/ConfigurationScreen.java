@@ -14,7 +14,10 @@ import java.util.Arrays;
 
 import static minecraftlover.moonvent.HPHUD.util.Constant.*;
 import static minecraftlover.moonvent.HPHUD.util.Constant.ConfigurationMenu.*;
+import static minecraftlover.moonvent.HPHUD.util.Constant.IndicatorPosition.*;
 import static minecraftlover.moonvent.HPHUD.util.Constant.LocalizationKey;
+import static minecraftlover.moonvent.HPHUD.util.Constant.LocalizationKey.BUTTON_KEY;
+import static minecraftlover.moonvent.HPHUD.util.Constant.LocalizationKey.WARNING_AFTER_PRESS_MENU_KEY;
 
 public class ConfigurationScreen extends Screen {
   private ModConfig modConfig = ModConfig.getInstance();
@@ -61,16 +64,18 @@ public class ConfigurationScreen extends Screen {
     addModeSwitcher();
     addPositionSwitcher();
     addSearchSlider();
+    addWarningChecker();
+    addGreetingsChecker();
 
   }
 
   private void changeIndicatorMode(CyclingButtonWidget button, String value) {
     newSelectedHPMode = value.split("\\.")[2];
     switch (newSelectedHPMode) {
-      case INDICATOR_TYPE.CURRENT_PERCENTAGE_HP:
+      case IndicatorType.CURRENT_PERCENTAGE_HP:
         currentModeImage = MOD_CURRENT_PERCENTAGE_HP_TEXTURE;
         break;
-      case INDICATOR_TYPE.CURRENT_WITH_MAX_HP:
+      case IndicatorType.CURRENT_WITH_MAX_HP:
         currentModeImage = MOD_CURRENT_WITH_MAX_HP_TEXTURE;
         break;
       default:
@@ -82,28 +87,28 @@ public class ConfigurationScreen extends Screen {
   private void changeIndicatorPosition(CyclingButtonWidget button, String value) {
     newSelectedPosition = value.split("\\.")[2];
     switch (newSelectedPosition) {
-      case "LEFT_NEAR_CROSSHAIR":
+      case LEFT_NEAR_CROSSHAIR:
         currentPositionImage = LEFT_NEAR_CROSSHAIR_TEXTURE;
         break;
-      case "LEFT_UPPER_NEAR_CROSSHAIR":
+      case LEFT_UPPER_NEAR_CROSSHAIR:
         currentPositionImage = LEFT_UPPER_NEAR_CROSSHAIR_TEXTURE;
         break;
-      case "LEFT_BOTTOM_NEAR_CROSSHAIR":
+      case LEFT_BOTTOM_NEAR_CROSSHAIR:
         currentPositionImage = LEFT_BOTTOM_NEAR_CROSSHAIR_TEXTURE;
         break;
-      case "RIGHT_NEAR_CROSSHAIR":
+      case RIGHT_NEAR_CROSSHAIR:
         currentPositionImage = RIGHT_NEAR_CROSSHAIR_TEXTURE;
         break;
-      case "RIGHT_BOTTOM_NEAR_CROSSHAIR":
+      case RIGHT_BOTTOM_NEAR_CROSSHAIR:
         currentPositionImage = RIGHT_BOTTOM_NEAR_CROSSHAIR_TEXTURE;
         break;
-      case "RIGHT_UPPER_NEAR_CROSSHAIR":
+      case RIGHT_UPPER_NEAR_CROSSHAIR:
         currentPositionImage = RIGHT_UPPER_NEAR_CROSSHAIR_TEXTURE;
         break;
-      case "TOP_NEAR_CROSSHAIR":
+      case TOP_NEAR_CROSSHAIR:
         currentPositionImage = TOP_NEAR_CROSSHAIR_TEXTURE;
         break;
-      case "BOTTOM_NEAR_CROSSHAIR":
+      case BOTTOM_NEAR_CROSSHAIR:
         currentPositionImage = BOTTOM_NEAR_CROSSHAIR_TEXTURE;
         break;
     }
@@ -218,40 +223,40 @@ public class ConfigurationScreen extends Screen {
 
   private void setupDefaultTextures() {
     switch (ModConfig.outputIndicatorMode) {
-      case INDICATOR_TYPE.CURRENT_HP:
+      case IndicatorType.CURRENT_HP:
         currentModeImage = MOD_CURRENT_HP_TEXTURE;
         break;
-      case INDICATOR_TYPE.CURRENT_WITH_MAX_HP:
+      case IndicatorType.CURRENT_WITH_MAX_HP:
         currentModeImage = MOD_CURRENT_WITH_MAX_HP_TEXTURE;
         break;
-      case INDICATOR_TYPE.CURRENT_PERCENTAGE_HP:
+      case IndicatorType.CURRENT_PERCENTAGE_HP:
         currentModeImage = MOD_CURRENT_PERCENTAGE_HP_TEXTURE;
         break;
     }
 
     switch (ModConfig.indicatorPosition) {
-      case INDICATOR_POSITION.LEFT_UPPER_NEAR_CROSSHAIR:
+      case LEFT_UPPER_NEAR_CROSSHAIR:
         currentPositionImage = LEFT_UPPER_NEAR_CROSSHAIR_TEXTURE;
         break;
-      case INDICATOR_POSITION.LEFT_NEAR_CROSSHAIR:
+      case LEFT_NEAR_CROSSHAIR:
         currentPositionImage = LEFT_NEAR_CROSSHAIR_TEXTURE;
         break;
-      case INDICATOR_POSITION.LEFT_BOTTOM_NEAR_CROSSHAIR:
+      case LEFT_BOTTOM_NEAR_CROSSHAIR:
         currentPositionImage = LEFT_BOTTOM_NEAR_CROSSHAIR_TEXTURE;
         break;
-      case INDICATOR_POSITION.BOTTOM_NEAR_CROSSHAIR:
+      case IndicatorPosition.BOTTOM_NEAR_CROSSHAIR:
         currentPositionImage = BOTTOM_NEAR_CROSSHAIR_TEXTURE;
         break;
-      case INDICATOR_POSITION.RIGHT_BOTTOM_NEAR_CROSSHAIR:
+      case IndicatorPosition.RIGHT_BOTTOM_NEAR_CROSSHAIR:
         currentPositionImage = RIGHT_BOTTOM_NEAR_CROSSHAIR_TEXTURE;
         break;
-      case INDICATOR_POSITION.RIGHT_NEAR_CROSSHAIR:
+      case IndicatorPosition.RIGHT_NEAR_CROSSHAIR:
         currentPositionImage = RIGHT_NEAR_CROSSHAIR_TEXTURE;
         break;
-      case INDICATOR_POSITION.RIGHT_UPPER_NEAR_CROSSHAIR:
+      case IndicatorPosition.RIGHT_UPPER_NEAR_CROSSHAIR:
         currentPositionImage = RIGHT_UPPER_NEAR_CROSSHAIR_TEXTURE;
         break;
-      case INDICATOR_POSITION.TOP_NEAR_CROSSHAIR:
+      case IndicatorPosition.TOP_NEAR_CROSSHAIR:
         currentPositionImage = TOP_NEAR_CROSSHAIR_TEXTURE;
         break;
     }
@@ -276,7 +281,7 @@ public class ConfigurationScreen extends Screen {
     CyclingButtonWidget<String> outputModeButton = CyclingButtonWidget.<String>builder(Text::translatable)
             .values(LocalizationKey.MODE_BUTTON_CURRENT_HP, LocalizationKey.MODE_BUTTON_CURRENT_WITH_MAX_HP,
                     LocalizationKey.MODE_BUTTON_CURRENT_PERCENTAGE_HP)
-            .initially("button." + MOD_NAME_FOR_LOCALIZATION + "." + ModConfig.outputIndicatorMode)
+            .initially(BUTTON_KEY + MOD_NAME_FOR_LOCALIZATION + "." + ModConfig.outputIndicatorMode)
             .build(this.width / 2 - cyclingButtonWidgetWidth / 2, currentY, cyclingButtonWidgetWidth, ROW_HEIGHT,
                     Text.translatable(LocalizationKey.MODE_BUTTON_DESCRIPTION),
                     ((button, value) -> changeIndicatorMode(button, value)));
@@ -303,7 +308,7 @@ public class ConfigurationScreen extends Screen {
                     LocalizationKey.RIGHT_NEAR_CROSSHAIR,
                     LocalizationKey.RIGHT_UPPER_NEAR_CROSSHAIR,
                     LocalizationKey.TOP_NEAR_CROSSHAIR)
-            .initially("button." + MOD_NAME_FOR_LOCALIZATION + "." + ModConfig.indicatorPosition)
+            .initially(BUTTON_KEY + MOD_NAME_FOR_LOCALIZATION + "." + ModConfig.indicatorPosition)
             .build(this.width / 2 - cyclingButtonWidgetWidth / 2, currentY, cyclingButtonWidgetWidth, ROW_HEIGHT,
                     Text.translatable(LocalizationKey.MODE_BUTTON_POSITION),
                     ((button, value) -> changeIndicatorPosition(button, value)));
@@ -343,5 +348,36 @@ public class ConfigurationScreen extends Screen {
       }
     };
     this.addDrawableChild(sliderWidget);
+    currentY += ROW_HEIGHT + SPACING;
+  }
+
+  private void addWarningChecker() {
+    CheckboxWidget.Builder builder = CheckboxWidget.builder(Text.translatable(WARNING_AFTER_PRESS_MENU_KEY), textRenderer);
+
+    builder.pos(currentX, currentY)
+      .callback((checkbox, checked) -> {
+        ModConfig.warningAfterPressMenuKey = checked;
+      })
+      .checked(ModConfig.warningAfterPressMenuKey);
+
+    CheckboxWidget checkbox = builder.build();
+    checkbox.setX(this.width / 2 - checkbox.getWidth() / 2);
+    this.addDrawableChild(checkbox);
+    currentY += ROW_HEIGHT + SPACING;
+  }
+
+  private void addGreetingsChecker() {
+    CheckboxWidget.Builder builder = CheckboxWidget.builder(Text.translatable(LocalizationKey.GREETINGS_AFTER_ENTER_IN_WORLD), textRenderer);
+
+    builder.pos(currentX, currentY)
+            .callback((checkbox, checked) -> {
+              ModConfig.greetingsAfterEnterInWorld = checked;
+            })
+            .checked(ModConfig.greetingsAfterEnterInWorld);
+
+    CheckboxWidget checkbox = builder.build();
+    checkbox.setX(this.width / 2 - checkbox.getWidth() / 2);
+    this.addDrawableChild(checkbox);
+    currentY += ROW_HEIGHT + SPACING;
   }
 }
