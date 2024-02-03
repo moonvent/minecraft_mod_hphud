@@ -151,12 +151,16 @@ Exactly config file and all documentation I left above, and now, you can see som
 #  Available values:
 #    1, 0
 #  Example:
-#    1greetingsAfterEnterInWorld - greetings in chat, after enter in the world
+#    1
+#
+#greetingsAfterEnterInWorld - greetings in chat, after enter in the world
 #
 #  Available values:
 #    1, 0
 #  Example:
-#    1Final default config example seem like that:
+#    1
+#
+#Final default config example seem like that:
 #
 #indicatorColor=FFAFFF
 #indicatorPosition=LEFT_UPPER_NEAR_CROSSHAIR
