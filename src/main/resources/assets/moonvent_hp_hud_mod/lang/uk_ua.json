@@ -1,0 +1,34 @@
+{
+  "chat.hphud.welcome": "[HPHUD] Дякуємо за гру з цим модом. Для налаштування моду натискайте комбінацію клавіш Ctrl + Shift + %s (англійська розкладка) одночасно",
+
+  "category.hphud.general": "[HPHUD] Гарячі клавіші моду (Всі комбінації починаються з Ctrl + Shift)",
+
+  "key.hphud.configure_mod": "Відкрити меню конфігурації моду",
+
+  "menu.hphud.configuration": "[HPHUD] Меню конфігурації",
+
+  "textfield.hphud.indicatorcolor": "Колір індикатора",
+
+  "checkbox.hphud.warningAfterPressMenuKey": "Попередження про неподавання кнопки відкриття меню",
+  "checkbox.hphud.greetingsAfterEnterInWorld": "Повідомлення вітання після входу в світ",
+
+  "button.hphud.currentHP": "Поточне здоров'я",
+  "button.hphud.currentWithMaxHP": "Поточне здоров'я з максимумом",
+  "button.hphud.currentPercentageHP": "Поточне здоров'я у відсотках",
+  "button.hphud.mods": "Режим",
+  "button.hphud.LEFT_UPPER_NEAR_CROSSHAIR": "вгорі ліворуч",
+  "button.hphud.LEFT_NEAR_CROSSHAIR": "ліворуч",
+  "button.hphud.LEFT_BOTTOM_NEAR_CROSSHAIR": "внизу ліворуч",
+  "button.hphud.BOTTOM_NEAR_CROSSHAIR": "внизу",
+  "button.hphud.RIGHT_BOTTOM_NEAR_CROSSHAIR": "внизу праворуч",
+  "button.hphud.RIGHT_NEAR_CROSSHAIR": "праворуч",
+  "button.hphud.RIGHT_UPPER_NEAR_CROSSHAIR": "вгорі праворуч",
+  "button.hphud.TOP_NEAR_CROSSHAIR": "вгорі",
+  "button.hphud.position": "Позиція",
+
+  "scroll.hphud.visibility_range": "Дальність видимості (в блоках)",
+  "scroll.hphud.visibility_range_value": "Дальність видимості (в блоках): %s",
+
+  "chat.hphud.keybind_config_menu_warging": "Якщо ви хочете увійти в меню конфігурації моду [HPHUD], натискайте Ctrl + Shift + %s. Якщо повідомлення з'явилося випадково і у вас є конфлікт поєднання клавіш, ви можете перейти до налаштувань моду (Ctrl + Shift + %s) і змінити поєднання клавіш або вимкнути це попередження"
+}
+

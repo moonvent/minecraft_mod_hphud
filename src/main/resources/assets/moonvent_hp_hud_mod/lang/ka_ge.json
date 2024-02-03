@@ -1,0 +1,34 @@
+{
+  "chat.hphud.welcome": "[HPHUD] მოდით თამაშის გამო გმადლობთ. მოდის კონფიგურაციას გასატეხად, დააჭირეთ Ctrl + Shift + %s (ინგლისური ლაიაუთი) ერთად",
+
+  "category.hphud.general": "[HPHUD] მოდის სწრაფი ღილაკები (ყველა კომბინაცია იწყება Ctrl + Shift-ით)",
+
+  "key.hphud.configure_mod": "მოდის კონფიგურაციის მენიუს გახსნა",
+
+  "menu.hphud.configuration": "[HPHUD] კონფიგურაციის მენიუ",
+
+  "textfield.hphud.indicatorcolor": "ინდიკატორის ფერი",
+
+  "checkbox.hphud.warningAfterPressMenuKey": "გაფრთხილება მენიუს ღილაკის დაჭერის შემდეგ",
+  "checkbox.hphud.greetingsAfterEnterInWorld": "მისალების შეტყობინება მსოფლიოში შესვლის შემდეგ",
+
+  "button.hphud.currentHP": "მიმდინარე ჯანმრთელობა",
+  "button.hphud.currentWithMaxHP": "მიმდინარე ჯანმრთელობა მაქსიმუმით",
+  "button.hphud.currentPercentageHP": "მიმდინარე ჯანმრთელობა პროცენტებში",
+  "button.hphud.mods": "რეჟიმი",
+  "button.hphud.LEFT_UPPER_NEAR_CROSSHAIR": "ზემო მარცხენა",
+  "button.hphud.LEFT_NEAR_CROSSHAIR": "მარცხენა",
+  "button.hphud.LEFT_BOTTOM_NEAR_CROSSHAIR": "ქვედა მარცხენა",
+  "button.hphud.BOTTOM_NEAR_CROSSHAIR": "ქვედა",
+  "button.hphud.RIGHT_BOTTOM_NEAR_CROSSHAIR": "ქვედა მარჯვენა",
+  "button.hphud.RIGHT_NEAR_CROSSHAIR": "მარჯვენა",
+  "button.hphud.RIGHT_UPPER_NEAR_CROSSHAIR": "ზემო მარჯვენა",
+  "button.hphud.TOP_NEAR_CROSSHAIR": "ზემო",
+  "button.hphud.position": "პოზიცია",
+
+  "scroll.hphud.visibility_range": "ხილვადობის დიაპაზონი (ბლოკებში)",
+  "scroll.hphud.visibility_range_value": "ხილვადობის დიაპაზონი (ბლოკებში): %s",
+
+  "chat.hphud.keybind_config_menu_warging": "თუ გსურთ [HPHUD] მოდის კონფიგურაციის მენიუში შესვლა, დააჭირეთ Ctrl + Shift + %s, თუ ეს შეტყობინება შეცდომით გამოჩნდა და თქვენს ღილაკთა კომბინაციებს კონფლიქტი აქვთ, თქვენ შეგიძლიათ მოდის პარამეტრებში შესვლა (Ctrl + Shift + %s) და ღილაკთა კომბინაცია შეცვალოთ, ან ეს გაფრთხილება გამორთოთ"
+}
+

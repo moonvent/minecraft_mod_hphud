@@ -1,0 +1,34 @@
+{
+  "chat.hphud.welcome": "[HPHUD] 感谢您使用这个模组。要配置模组，请同时按下 Ctrl + Shift + %s（英文布局）",
+
+  "category.hphud.general": "[HPHUD] 模组快捷键（所有组合键以 Ctrl + Shift 开头）",
+
+  "key.hphud.configure_mod": "打开模组配置菜单",
+
+  "menu.hphud.configuration": "[HPHUD] 配置菜单",
+
+  "textfield.hphud.indicatorcolor": "指示器颜色",
+
+  "checkbox.hphud.warningAfterPressMenuKey": "未按下菜单键警告",
+  "checkbox.hphud.greetingsAfterEnterInWorld": "进入世界后的问候消息",
+
+  "button.hphud.currentHP": "当前生命值",
+  "button.hphud.currentWithMaxHP": "当前生命值与最大值",
+  "button.hphud.currentPercentageHP": "当前生命值百分比",
+  "button.hphud.mods": "模式",
+  "button.hphud.LEFT_UPPER_NEAR_CROSSHAIR": "左上",
+  "button.hphud.LEFT_NEAR_CROSSHAIR": "左",
+  "button.hphud.LEFT_BOTTOM_NEAR_CROSSHAIR": "左下",
+  "button.hphud.BOTTOM_NEAR_CROSSHAIR": "下",
+  "button.hphud.RIGHT_BOTTOM_NEAR_CROSSHAIR": "右下",
+  "button.hphud.RIGHT_NEAR_CROSSHAIR": "右",
+  "button.hphud.RIGHT_UPPER_NEAR_CROSSHAIR": "右上",
+  "button.hphud.TOP_NEAR_CROSSHAIR": "上",
+  "button.hphud.position": "位置",
+
+  "scroll.hphud.visibility_range": "可见范围（方块数）",
+  "scroll.hphud.visibility_range_value": "可见范围（方块数）：%s",
+
+  "chat.hphud.keybind_config_menu_warging": "如果您想进入[HPHUD]模组配置菜单，请按下 Ctrl + Shift + %s。如果消息意外出现并且存在组合键冲突，您可以转到模组设置（Ctrl + Shift + %s）并更改组合键或关闭此警告"
+}
+

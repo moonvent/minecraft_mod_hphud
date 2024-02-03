@@ -1,0 +1,34 @@
+{
+  "chat.hphud.welcome": "[HPHUD] Bu modu oynadığınız için teşekkürler. Modu yapılandırmak için, Ctrl + Shift + %s (İngilizce düzen) tuşlarına aynı anda basın",
+
+  "category.hphud.general": "[HPHUD] Modun kısayol tuşları (Tüm kombinasyonlar Ctrl + Shift ile başlar)",
+
+  "key.hphud.configure_mod": "Mod yapılandırma menüsünü aç",
+
+  "menu.hphud.configuration": "[HPHUD] Yapılandırma Menüsü",
+
+  "textfield.hphud.indicatorcolor": "Gösterge rengi",
+
+  "checkbox.hphud.warningAfterPressMenuKey": "Menü tuşuna basıldıktan sonra uyarı",
+  "checkbox.hphud.greetingsAfterEnterInWorld": "Dünyaya girildikten sonra karşılama mesajı",
+
+  "button.hphud.currentHP": "Mevcut Sağlık",
+  "button.hphud.currentWithMaxHP": "Maksimumlu Mevcut Sağlık",
+  "button.hphud.currentPercentageHP": "Yüzdelik Mevcut Sağlık",
+  "button.hphud.mods": "Mod",
+  "button.hphud.LEFT_UPPER_NEAR_CROSSHAIR": "sol üst",
+  "button.hphud.LEFT_NEAR_CROSSHAIR": "sol",
+  "button.hphud.LEFT_BOTTOM_NEAR_CROSSHAIR": "sol alt",
+  "button.hphud.BOTTOM_NEAR_CROSSHAIR": "alt",
+  "button.hphud.RIGHT_BOTTOM_NEAR_CROSSHAIR": "sağ alt",
+  "button.hphud.RIGHT_NEAR_CROSSHAIR": "sağ",
+  "button.hphud.RIGHT_UPPER_NEAR_CROSSHAIR": "sağ üst",
+  "button.hphud.TOP_NEAR_CROSSHAIR": "üst",
+  "button.hphud.position": "Pozisyon",
+
+  "scroll.hphud.visibility_range": "Görünürlük menzili (bloklarla)",
+  "scroll.hphud.visibility_range_value": "Görünürlük menzili (bloklarla): %s",
+
+  "chat.hphud.keybind_config_menu_warging": "[HPHUD] mod yapılandırma menüsüne girmek istiyorsanız, Ctrl + Shift + %s tuşlarına basın, bu mesaj yanlışlıkla görünüyorsa ve tuş kombinasyonlarınızda bir çakışma varsa, mod ayarlarına girebilir (Ctrl + Shift + %s) ve tuş kombinasyonunu değiştirebilir veya bu uyarıyı devre dışı bırakabilirsiniz"
+}
+

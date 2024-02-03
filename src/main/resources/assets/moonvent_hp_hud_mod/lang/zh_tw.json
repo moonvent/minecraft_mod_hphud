@@ -1,0 +1,34 @@
+{
+  "chat.hphud.welcome": "[HPHUD] 感謝您使用此模組。要設定模組，請同時按下 Ctrl + Shift + %s（英文鍵盤佈局）",
+
+  "category.hphud.general": "[HPHUD] 模組快捷鍵（所有組合都以 Ctrl + Shift 開頭）",
+
+  "key.hphud.configure_mod": "開啟模組配置菜單",
+
+  "menu.hphud.configuration": "[HPHUD] 配置菜單",
+
+  "textfield.hphud.indicatorcolor": "指示器顏色",
+
+  "checkbox.hphud.warningAfterPressMenuKey": "按下菜單鍵後警告",
+  "checkbox.hphud.greetingsAfterEnterInWorld": "進入世界後的歡迎訊息",
+
+  "button.hphud.currentHP": "當前健康",
+  "button.hphud.currentWithMaxHP": "當前健康與最大值",
+  "button.hphud.currentPercentageHP": "當前健康百分比",
+  "button.hphud.mods": "模式",
+  "button.hphud.LEFT_UPPER_NEAR_CROSSHAIR": "左上近準星",
+  "button.hphud.LEFT_NEAR_CROSSHAIR": "左側近準星",
+  "button.hphud.LEFT_BOTTOM_NEAR_CROSSHAIR": "左下近準星",
+  "button.hphud.BOTTOM_NEAR_CROSSHAIR": "下方近準星",
+  "button.hphud.RIGHT_BOTTOM_NEAR_CROSSHAIR": "右下近準星",
+  "button.hphud.RIGHT_NEAR_CROSSHAIR": "右側近準星",
+  "button.hphud.RIGHT_UPPER_NEAR_CROSSHAIR": "右上近準星",
+  "button.hphud.TOP_NEAR_CROSSHAIR": "上方近準星",
+  "button.hphud.position": "位置",
+
+  "scroll.hphud.visibility_range": "可視範圍（以方塊計）",
+  "scroll.hphud.visibility_range_value": "可視範圍（以方塊計）：%s",
+
+  "chat.hphud.keybind_config_menu_warging": "如果您想要進入 [HPHUD] 模組的配置菜單，請按 Ctrl + Shift + %s，如果此訊息是因為按鍵組合衝突而意外出現，您可以進入模組設置（Ctrl + Shift + %s）並更改按鍵組合，或者關閉此警告"
+}
+

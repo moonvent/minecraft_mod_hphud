@@ -1,0 +1,34 @@
+{
+  "chat.hphud.welcome": "[HPHUD] Бұл модпен ойнағаныңыз үшін рахмет. Модты теңшеу үшін, Ctrl + Shift + %s (ағылшын тіліндегі пернетақта жайлылығы) пернелерін бір мезгілде басыңыз",
+
+  "category.hphud.general": "[HPHUD] Модтың жылдам пернелері (Барлық комбинациялар Ctrl + Shift-пен басталады)",
+
+  "key.hphud.configure_mod": "Модты теңшеу мәзірін ашу",
+
+  "menu.hphud.configuration": "[HPHUD] Теңшеу мәзірі",
+
+  "textfield.hphud.indicatorcolor": "Көрсеткіш түсі",
+
+  "checkbox.hphud.warningAfterPressMenuKey": "Мәзір пернесін басқаннан кейінгі ескерту",
+  "checkbox.hphud.greetingsAfterEnterInWorld": "Әлемге кіргеннен кейінгі құттықтау хабарламасы",
+
+  "button.hphud.currentHP": "Ағымдағы денсаулық",
+  "button.hphud.currentWithMaxHP": "Максималды денсаулықпен ағымдағы денсаулық",
+  "button.hphud.currentPercentageHP": "Пайызбен ағымдағы денсаулық",
+  "button.hphud.mods": "Режим",
+  "button.hphud.LEFT_UPPER_NEAR_CROSSHAIR": "жоғары сол",
+  "button.hphud.LEFT_NEAR_CROSSHAIR": "сол",
+  "button.hphud.LEFT_BOTTOM_NEAR_CROSSHAIR": "төмен сол",
+  "button.hphud.BOTTOM_NEAR_CROSSHAIR": "төмен",
+  "button.hphud.RIGHT_BOTTOM_NEAR_CROSSHAIR": "төмен оң",
+  "button.hphud.RIGHT_NEAR_CROSSHAIR": "оң",
+  "button.hphud.RIGHT_UPPER_NEAR_CROSSHAIR": "жоғары оң",
+  "button.hphud.TOP_NEAR_CROSSHAIR": "жоғары",
+  "button.hphud.position": "Орналасу",
+
+  "scroll.hphud.visibility_range": "Көріну қашықтығы (блоктарда)",
+  "scroll.hphud.visibility_range_value": "Көріну қашықтығы (блоктарда): %s",
+
+  "chat.hphud.keybind_config_menu_warging": "Егер сіз [HPHUD] модының теңшеу мәзіріне кіргіңіз келсе, Ctrl + Shift + %s басыңыз, егер бұл хабарлама қателікпен пайда болса және сізде пернелер комбинациясы қақтығысы болса, онда сіз мод параметрлеріне кіре аласыз (Ctrl + Shift + %s) және пернелер комбинациясын өзгерте аласыз, немесе бұл ескертуді өшіре аласыз"
+}
+

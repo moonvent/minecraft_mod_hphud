@@ -87,6 +87,26 @@ public final class Constant {
       +
       "    LEFT_UPPER_NEAR_CROSSHAIR\n\n"
       +
+      "warningAfterPressMenuKey - a warning in chat, which appear when press not complete keybind for open configuration of menu\n\n"
+      +
+      "  Available values:\n"
+      +
+      "    1, 0\n"
+      +
+      "  Example:\n"
+      +
+      "    1"
+      +
+      "greetingsAfterEnterInWorld - greetings in chat, after enter in the world\n\n"
+      +
+      "  Available values:\n"
+      +
+      "    1, 0\n"
+      +
+      "  Example:\n"
+      +
+      "    1"
+      +
       "Final default config example seem like that:\n\n"
       +
       "indicatorColor=FFAFFF\n"
@@ -94,6 +114,10 @@ public final class Constant {
       "indicatorPosition=LEFT_UPPER_NEAR_CROSSHAIR\n"
       +
       "outputIndicatorMode=currentHP\n"
+      +
+      "greetingsAfterEnterInWorld=1\n"
+      +
+      "warningAfterPressMenuKey=1\n"
       +
       "searchDistance=20\n\n"
       +
@@ -211,10 +235,10 @@ public final class Constant {
         + ".visibility_range_value";
 
     public static final String WARNING_AFTER_PRESS_MENU_KEY = "checkbox." + MOD_NAME_FOR_LOCALIZATION
-            + ".warningAfterPressMenuKey";
+        + ".warningAfterPressMenuKey";
 
     public static final String GREETINGS_AFTER_ENTER_IN_WORLD = "checkbox." + MOD_NAME_FOR_LOCALIZATION
-            + ".greetingsAfterEnterInWorld";
+        + ".greetingsAfterEnterInWorld";
 
   }
 

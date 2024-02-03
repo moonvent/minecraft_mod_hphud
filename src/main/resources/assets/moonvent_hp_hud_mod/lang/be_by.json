@@ -1,0 +1,34 @@
+{
+  "chat.hphud.welcome": "[HPHUD] Дзякуй за гульню з гэтым модам. Каб наладзіць мод, націсніце камбінацыю клавіш Ctrl + Shift + %s (англійская раскладка) адразу",
+
+  "category.hphud.general": "[HPHUD] Гарачыя клавішы мода (Усе камбінацыі пачынаюцца з Ctrl + Shift)",
+
+  "key.hphud.configure_mod": "Адкрыць меню канфігурацыі мода",
+
+  "menu.hphud.configuration": "[HPHUD] Меню канфігурацыі",
+
+  "textfield.hphud.indicatorcolor": "Колер індыкатара",
+
+  "checkbox.hphud.warningAfterPressMenuKey": "Папярэджанне пра недаціск клавішы адкрыцця меню",
+  "checkbox.hphud.greetingsAfterEnterInWorld": "Павітанне паведамленне пасля ўваходу ў свет",
+
+  "button.hphud.currentHP": "Бягучае здароўе",
+  "button.hphud.currentWithMaxHP": "Бягучае здароўе з максімумам",
+  "button.hphud.currentPercentageHP": "Бягучае здароўе ў працэнтах",
+  "button.hphud.mods": "Рэжым",
+  "button.hphud.LEFT_UPPER_NEAR_CROSSHAIR": "уверху леваруч",
+  "button.hphud.LEFT_NEAR_CROSSHAIR": "леваруч",
+  "button.hphud.LEFT_BOTTOM_NEAR_CROSSHAIR": "унізе леваруч",
+  "button.hphud.BOTTOM_NEAR_CROSSHAIR": "унізе",
+  "button.hphud.RIGHT_BOTTOM_NEAR_CROSSHAIR": "унізе справа",
+  "button.hphud.RIGHT_NEAR_CROSSHAIR": "справа",
+  "button.hphud.RIGHT_UPPER_NEAR_CROSSHAIR": "уверху справа",
+  "button.hphud.TOP_NEAR_CROSSHAIR": "уверху",
+  "button.hphud.position": "Пазіцыя",
+
+  "scroll.hphud.visibility_range": "Далекасць бачнасці (у блоках)",
+  "scroll.hphud.visibility_range_value": "Далекасць бачнасці (у блоках): %s",
+
+  "chat.hphud.keybind_config_menu_warging": "Калі вы жадаеце ўвайсці ў меню канфігурацыі мода [HPHUD], націсніце Ctrl + Shift + %s. Калі паведамленне з'явілася выпадкова і ў вас ёсць канфлікт камбінацый клавіш, вы можаце перайсці да налад мода (Ctrl + Shift + %s) і змяніць камбінацыю клавіш або выключыць гэта папярэджанне"
+}
+

@@ -1,0 +1,34 @@
+{
+  "chat.hphud.welcome": "[HPHUD] Gracias por jugar con este mod. Para configurar el mod, presiona la combinación de teclas Ctrl + Shift + %s (distribución en inglés) simultáneamente",
+
+  "category.hphud.general": "[HPHUD] Teclas rápidas del mod (Todas las combinaciones comienzan con Ctrl + Shift)",
+
+  "key.hphud.configure_mod": "Abrir menú de configuración del mod",
+
+  "menu.hphud.configuration": "[HPHUD] Menú de configuración",
+
+  "textfield.hphud.indicatorcolor": "Color del indicador",
+
+  "checkbox.hphud.warningAfterPressMenuKey": "Advertencia sobre no presionar la tecla de menú",
+  "checkbox.hphud.greetingsAfterEnterInWorld": "Mensaje de saludo después de entrar al mundo",
+
+  "button.hphud.currentHP": "Salud actual",
+  "button.hphud.currentWithMaxHP": "Salud actual con máxima",
+  "button.hphud.currentPercentageHP": "Porcentaje de salud actual",
+  "button.hphud.mods": "Modo",
+  "button.hphud.LEFT_UPPER_NEAR_CROSSHAIR": "arriba izquierda",
+  "button.hphud.LEFT_NEAR_CROSSHAIR": "izquierda",
+  "button.hphud.LEFT_BOTTOM_NEAR_CROSSHAIR": "abajo izquierda",
+  "button.hphud.BOTTOM_NEAR_CROSSHAIR": "abajo",
+  "button.hphud.RIGHT_BOTTOM_NEAR_CROSSHAIR": "abajo derecha",
+  "button.hphud.RIGHT_NEAR_CROSSHAIR": "derecha",
+  "button.hphud.RIGHT_UPPER_NEAR_CROSSHAIR": "arriba derecha",
+  "button.hphud.TOP_NEAR_CROSSHAIR": "arriba",
+  "button.hphud.position": "Posición",
+
+  "scroll.hphud.visibility_range": "Rango de visibilidad (en bloques)",
+  "scroll.hphud.visibility_range_value": "Rango de visibilidad (en bloques): %s",
+
+  "chat.hphud.keybind_config_menu_warging": "Si quieres entrar al menú de configuración del mod [HPHUD], presiona Ctrl + Shift + %s. Si el mensaje apareció accidentalmente y hay un conflicto de combinación de teclas, puedes ir a la configuración del mod (Ctrl + Shift + %s) y cambiar la combinación de teclas o desactivar esta advertencia"
+}
+

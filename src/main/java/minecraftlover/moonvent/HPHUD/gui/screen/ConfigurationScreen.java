@@ -139,24 +139,37 @@ public class ConfigurationScreen extends Screen {
 
   private void setupNewColor(String newColorText) {
     // TODO: make refreshing of color for indicator without reloading
+//     this.remove(indicatorColorLabelWidget);
+//    indicatorColorLabelWidget.setTextColor(Integer.parseInt("888888", 16));
+//
+//     indicatorColorLabelWidget = new TextWidget(currentX,
+//       indicatorColorLabelWidget.getY(),
+//       indicatorColorLabelWidget.getWidth(),
+//       indicatorColorLabelWidget.getHeight(),
+//       Text
+//       .translatable("sex")
+//       .withColor(Integer.parseInt("FFFFFF", 16)),
+//       textRenderer);
+//     this.addDrawableChild(indicatorColorLabelWidget);
     if (newColorText.length() == COLOR_LENGTH) {
       try {
         newIndicatorColor = Integer.parseInt(newColorText, 16);
       } catch (NumberFormatException e) {
         return;
       }
-      indicatorColorLabelWidget.setTextColor(newIndicatorColor);
-      // this.remove(indicatorColorLabelWidget);
-      //
-      // indicatorColorLabelWidget = new TextWidget(currentRowX,
-      // currentY,
-      // indicatorColorLabelWidget.getWidth(),
-      // indicatorColorLabelWidget.getHeight(),
-      // Text
-      // .translatable(LocalizationKey.INDICATOR_COLOR_TEXTFIELD)
-      // .withColor(newIndicatorColor),
-      // textRenderer);
-      // this.addDrawableChild(indicatorColorLabelWidget);
+      this.remove(indicatorColorLabelWidget);
+
+      indicatorColorLabelWidget = new TextWidget(currentX,
+        indicatorColorLabelWidget.getY(),
+        indicatorColorLabelWidget.getWidth(),
+        indicatorColorLabelWidget.getHeight(),
+        Text
+          .translatable(LocalizationKey.INDICATOR_COLOR_TEXTFIELD)
+          .withColor(newIndicatorColor),
+          textRenderer
+      );
+      this.addDrawableChild(indicatorColorLabelWidget);
+      indicatorColorFieldWidget.setEditableColor(newIndicatorColor);
 
       ModConfig.indicatorColor = newColorText;
     }

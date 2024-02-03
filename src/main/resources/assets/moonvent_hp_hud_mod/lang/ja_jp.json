@@ -1,0 +1,34 @@
+{
+  "chat.hphud.welcome": "[HPHUD] このモッドをプレイしていただきありがとうございます。モッドを設定するには、Ctrl + Shift + %s（英語キーレイアウト）を同時に押してください",
+
+  "category.hphud.general": "[HPHUD] モッドのショートカットキー（すべての組み合わせはCtrl + Shiftで始まります）",
+
+  "key.hphud.configure_mod": "モッド設定メニューを開く",
+
+  "menu.hphud.configuration": "[HPHUD] 設定メニュー",
+
+  "textfield.hphud.indicatorcolor": "インジケーターの色",
+
+  "checkbox.hphud.warningAfterPressMenuKey": "メニューキーを押した後の警告",
+  "checkbox.hphud.greetingsAfterEnterInWorld": "ワールドに入った後の挨拶メッセージ",
+
+  "button.hphud.currentHP": "現在のHP",
+  "button.hphud.currentWithMaxHP": "最大HPを含む現在のHP",
+  "button.hphud.currentPercentageHP": "パーセンテージでの現在のHP",
+  "button.hphud.mods": "モード",
+  "button.hphud.LEFT_UPPER_NEAR_CROSSHAIR": "左上",
+  "button.hphud.LEFT_NEAR_CROSSHAIR": "左",
+  "button.hphud.LEFT_BOTTOM_NEAR_CROSSHAIR": "左下",
+  "button.hphud.BOTTOM_NEAR_CROSSHAIR": "下",
+  "button.hphud.RIGHT_BOTTOM_NEAR_CROSSHAIR": "右下",
+  "button.hphud.RIGHT_NEAR_CROSSHAIR": "右",
+  "button.hphud.RIGHT_UPPER_NEAR_CROSSHAIR": "右上",
+  "button.hphud.TOP_NEAR_CROSSHAIR": "上",
+  "button.hphud.position": "位置",
+
+  "scroll.hphud.visibility_range": "視認性範囲（ブロック単位）",
+  "scroll.hphud.visibility_range_value": "視認性範囲（ブロック単位）：%s",
+
+  "chat.hphud.keybind_config_menu_warging": "もし[HPHUD]モッドの設定メニューに入りたい場合は、Ctrl + Shift + %sを押してください。このメッセージが誤って表示され、キーバインドの競合がある場合は、モッド設定（Ctrl + Shift + %s）に入り、キーバインドを変更するか、この警告を無効にすることができます"
+}
+

@@ -1,8 +1,10 @@
-# 0.5.30
+# 1.5.36
 
 1) Add configuration menu;
 2) A little refactoring;
 3) Fix a bug with crash out from indicator position object initialization;
+4) Add additional localization;
+5) Update readme and other docs;
 
 
 # 0.4.23

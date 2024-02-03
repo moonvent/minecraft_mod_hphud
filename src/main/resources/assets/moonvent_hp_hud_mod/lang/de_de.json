@@ -1,0 +1,34 @@
+{
+  "chat.hphud.welcome": "[HPHUD] Vielen Dank für das Spielen mit diesem Mod. Um den Mod anzupassen, drücken Sie die Tastenkombination Strg + Umschalt + %s (englisches Layout) gleichzeitig",
+
+  "category.hphud.general": "[HPHUD] Mod-Tastenkombinationen (Alle Kombinationen beginnen mit Strg + Umschalt)",
+
+  "key.hphud.configure_mod": "Öffnen Sie das Mod-Konfigurationsmenü",
+
+  "menu.hphud.configuration": "[HPHUD] Konfigurationsmenü",
+
+  "textfield.hphud.indicatorcolor": "Indikatorfarbe",
+
+  "checkbox.hphud.warningAfterPressMenuKey": "Warnung bei Nichtbetätigung der Menütaste",
+  "checkbox.hphud.greetingsAfterEnterInWorld": "Begrüßungsnachricht nach dem Betreten der Welt",
+
+  "button.hphud.currentHP": "Aktuelle Gesundheit",
+  "button.hphud.currentWithMaxHP": "Aktuelle Gesundheit mit Maximum",
+  "button.hphud.currentPercentageHP": "Aktuelle Gesundheit in Prozent",
+  "button.hphud.mods": "Modus",
+  "button.hphud.LEFT_UPPER_NEAR_CROSSHAIR": "oben links",
+  "button.hphud.LEFT_NEAR_CROSSHAIR": "links",
+  "button.hphud.LEFT_BOTTOM_NEAR_CROSSHAIR": "unten links",
+  "button.hphud.BOTTOM_NEAR_CROSSHAIR": "unten",
+  "button.hphud.RIGHT_BOTTOM_NEAR_CROSSHAIR": "unten rechts",
+  "button.hphud.RIGHT_NEAR_CROSSHAIR": "rechts",
+  "button.hphud.RIGHT_UPPER_NEAR_CROSSHAIR": "oben rechts",
+  "button.hphud.TOP_NEAR_CROSSHAIR": "oben",
+  "button.hphud.position": "Position",
+
+  "scroll.hphud.visibility_range": "Sichtweite (in Blöcken)",
+  "scroll.hphud.visibility_range_value": "Sichtweite (in Blöcken): %s",
+
+  "chat.hphud.keybind_config_menu_warging": "Wenn Sie das Konfigurationsmenü des Mods [HPHUD] öffnen möchten, drücken Sie Strg + Umschalt + %s. Wenn die Meldung versehentlich angezeigt wird und es Konflikte mit Tastenkombinationen gibt, können Sie die Mod-Einstellungen (Strg + Umschalt + %s) aufrufen und die Tastenkombination ändern oder diese Warnung deaktivieren"
+}
+

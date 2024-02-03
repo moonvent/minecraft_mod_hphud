@@ -1,0 +1,34 @@
+{
+  "chat.hphud.welcome": "[HPHUD] Bedankt voor het spelen met deze mod. Om de mod te configureren, druk tegelijkertijd op Ctrl + Shift + %s (Engelse layout)",
+
+  "category.hphud.general": "[HPHUD] Mod sneltoetsen (Alle combinaties beginnen met Ctrl + Shift)",
+
+  "key.hphud.configure_mod": "Open het configuratiemenu van de mod",
+
+  "menu.hphud.configuration": "[HPHUD] Configuratiemenu",
+
+  "textfield.hphud.indicatorcolor": "Indicator kleur",
+
+  "checkbox.hphud.warningAfterPressMenuKey": "Waarschuwing na het indrukken van de menutoets",
+  "checkbox.hphud.greetingsAfterEnterInWorld": "Welkomstbericht na het betreden van de wereld",
+
+  "button.hphud.currentHP": "Huidige gezondheid",
+  "button.hphud.currentWithMaxHP": "Huidige gezondheid met maximum",
+  "button.hphud.currentPercentageHP": "Huidige gezondheid in procenten",
+  "button.hphud.mods": "Modus",
+  "button.hphud.LEFT_UPPER_NEAR_CROSSHAIR": "links boven",
+  "button.hphud.LEFT_NEAR_CROSSHAIR": "links",
+  "button.hphud.LEFT_BOTTOM_NEAR_CROSSHAIR": "links onder",
+  "button.hphud.BOTTOM_NEAR_CROSSHAIR": "onder",
+  "button.hphud.RIGHT_BOTTOM_NEAR_CROSSHAIR": "rechts onder",
+  "button.hphud.RIGHT_NEAR_CROSSHAIR": "rechts",
+  "button.hphud.RIGHT_UPPER_NEAR_CROSSHAIR": "rechts boven",
+  "button.hphud.TOP_NEAR_CROSSHAIR": "boven",
+  "button.hphud.position": "Positie",
+
+  "scroll.hphud.visibility_range": "Zichtbaarheidsbereik (in blokken)",
+  "scroll.hphud.visibility_range_value": "Zichtbaarheidsbereik (in blokken): %s",
+
+  "chat.hphud.keybind_config_menu_warging": "Als u het configuratiemenu van de [HPHUD] mod wilt betreden, druk dan op Ctrl + Shift + %s, als dit bericht per ongeluk verschijnt en u een conflict hebt met toetscombinaties, dan kunt u het mod-instellingen (Ctrl + Shift + %s) ingaan en de toetscombinatie wijzigen, of deze waarschuwing uitschakelen"
+}
+

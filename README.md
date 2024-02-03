@@ -28,7 +28,7 @@ Here is a roadmap of future changes:
 
 **<span style="color: green">[ Completed ]</span>** Add percentage view.
 
-**<span style="color: #1ECBE1">[ In Work ]</span>** Add menu in game to hot switch mod configuration.
+**<span style="color: green">[ Completed ]</span>** Add menu in game to hot switch mod configuration.
 
 Thank you for your attention and enjoy using my mod! If you have any suggestions for other features that could be added to make the mod even more convenient and user-friendly, please feel free to share them with me in a private message. I am always open to feedback and suggestions. Let's keep the conversation respectful and avoid violating any of the website's rules or global laws. 
 
@@ -38,18 +38,27 @@ Thank you for your attention and enjoy using my mod! If you have any suggestions
 
 **<span style="color: yellow">Warning is begin</span>**
 
-If you migrate from vesion 0.2.~ please, remove the file: 
+If you migrate from vesion older version of mod, please, remove the file: 
 `your_minecraft_folder/config/HPHUD.cfg`
 
 Before start minecraft with new mod version
 
 **<span style="color: yellow">Warning is end</span>**
 
-From 0.4.23 version of mod (if it's not on site, just wait it, it's premoderate status) I'm add a config file in good format and make a hot reload with it, you can just change this config file, which exist in: 
+From 0.4.23 version of mod I'm add a config file in good format and make a hot reload with it, you can just change this config file, which exist in: 
 
 `your_minecraft_folder/config/HPHUD.cfg`
 
 and you can with OPENED minecraft change the config, re-enter in the world (if you change it in the world) and see, that's you changes is apply! It's so comfortable feature for configure mod (and for tests exactly :-) ), and you can play with some settings without reload a full minecraft. Yes, I know and work with menu in the game for change the setting and it's in a proccess, but now it's a good feature for setup this mod as you wish right NOW! 
+
+**[ UPDATED ]** You can change setting from the world in minecraft, just press `Ctrl + Shift + H` (by default) and you open configuration menu, where you can setup what you need, exactly:
+
+* Color of indicator
+* Indicator mode
+* Position of indicator
+* Indicator work distance
+* Turn off / on warning about not complete keybind for open configuration menu
+* Turn off / on greetings after enter in the world
 
 Exactly config file and all documentation I left above, and now, you can see some examples of mod
 
@@ -61,6 +70,9 @@ Exactly config file and all documentation I left above, and now, you can see som
 ![Mod with default settings at night](https://media.forgecdn.net/attachments/795/151/2024-01-23_19.png)
 ![Changing color and type of hp display](https://media.forgecdn.net/attachments/795/898/1.jpg)
 ![Percentage mod and change position feature](https://media.forgecdn.net/attachments/797/484/2024-01-27_15.png)
+![Configuration menu 1](https://media.forgecdn.net/attachments/797/484/2024-01-27_15.png)
+![Configuration menu 2 (on other language and params)](https://media.forgecdn.net/attachments/797/484/2024-01-27_15.png)
+
 
 ---
 
@@ -79,46 +91,58 @@ Exactly config file and all documentation I left above, and now, you can see som
 #
 #outputIndicatorMode - mod has 3 different modes to output you amount of entity health:
 #
-#  Available values:
-#    1) currentHP - display amount of current entity HP, default value for parametr
-#      Example:
-#      10
-#    2) currentWithMaxHP - display current hp, slash, max hp
-#      Example:
-#        10 / 20
-#    3) currentPercentageHP - display amount of entity hp in percentage
-#      Example:
-#        50%
+#  Available values:
+#    1) currentHP - display amount of current entity HP, default value for parametr
+#      Example:
+#      10
+#    2) currentWithMaxHP - display current hp, slash, max hp
+#      Example:
+#        10 / 20
+#    3) currentPercentageHP - display amount of entity hp in percentage
+#      Example:
+#        50%
 #
 #searchDistance - How far (in blocks) mod will be search entity for display amount of HP
-#  Available values:
+#  Available values:
 #
-#    Positive Integer, 1 - 100, if set someting wrong
-#  Example:
-#    20
+#    Positive Integer, 1 - 100, if set someting wrong
+#  Example:
+#    20
 #
 #indicatorColor - Color of indicator, I try a several colors, and find that pink :)
-#  is more suitable for most cases, but, if you think otherwise and have a suitable replacement, let me know.
-#  Our staff of one employee will check it, and if necessary, change the default color
+#  is more suitable for most cases, but, if you think otherwise and have a suitable replacement, let me know.
+#  Our staff of one employee will check it, and if necessary, change the default color
 #
-#  Available values:
-#    Any color in hex view, for example, and by default sets FFAFFF
-#  Example:
-#    FFAFFF
+#  Available values:
+#    Any color in hex view, for example, and by default sets FFAFFF
+#  Example:
+#    FFAFFF
 #
 #indicatorPosition - Indicator position, now, in relation from crosshair
 #
-#  Available values:
-#    LEFT_UPPER_NEAR_CROSSHAIR, RIGHT_UPPER_NEAR_CROSSHAIR, LEFT_BOTTOM_NEAR_CROSSHAIR, RIGHT_BOTTOM_NEAR_CROSSHAIR,
-#    RIGHT_NEAR_CROSSHAIR, TOP_NEAR_CROSSHAIR, BOTTOM_NEAR_CROSSHAIR, LEFT_NEAR_CROSSHAIR
-#  Example:
-#    LEFT_UPPER_NEAR_CROSSHAIR
+#  Available values:
+#    LEFT_UPPER_NEAR_CROSSHAIR, RIGHT_UPPER_NEAR_CROSSHAIR, LEFT_BOTTOM_NEAR_CROSSHAIR, RIGHT_BOTTOM_NEAR_CROSSHAIR,
+#    RIGHT_NEAR_CROSSHAIR, TOP_NEAR_CROSSHAIR, BOTTOM_NEAR_CROSSHAIR, LEFT_NEAR_CROSSHAIR
+#  Example:
+#    LEFT_UPPER_NEAR_CROSSHAIR
 #
-#Final default config example seem like that:
+#warningAfterPressMenuKey - a warning in chat, which appear when press not complete keybind for open configuration of menu
+#
+#  Available values:
+#    1, 0
+#  Example:
+#    1greetingsAfterEnterInWorld - greetings in chat, after enter in the world
+#
+#  Available values:
+#    1, 0
+#  Example:
+#    1Final default config example seem like that:
 #
 #indicatorColor=FFAFFF
 #indicatorPosition=LEFT_UPPER_NEAR_CROSSHAIR
 #outputIndicatorMode=currentHP
+#greetingsAfterEnterInWorld=1
+#warningAfterPressMenuKey=1
 #searchDistance=20
 #
 #If something went wrong, you are set the wrong type of parametr or wrong parametr,
@@ -126,11 +150,13 @@ Exactly config file and all documentation I left above, and now, you can see som
 #
 #Thank you for playing with this mod!
 #
-#Sat Jan 27 15:02:43 CET 2024
-indicatorColor=FFAFFF
-indicatorPosition=LEFT_UPPER_NEAR_CROSSHAIR
-outputIndicatorMode=currentHP
-searchDistance=20
+#Sat Feb 03 15:54:00 CET 2024
+greetingsAfterEnterInWorld=1
+indicatorColor=FFAA99
+indicatorPosition=LEFT_BOTTOM_NEAR_CROSSHAIR
+outputIndicatorMode=currentWithMaxHP
+searchDistance=30
+warningAfterPressMenuKey=0
 ```
 ---
 

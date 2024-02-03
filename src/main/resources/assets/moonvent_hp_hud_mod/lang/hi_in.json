@@ -1,0 +1,34 @@
+{
+  "chat.hphud.welcome": "[HPHUD] इस मॉड के साथ खेलने के लिए धन्यवाद। मॉड को कॉन्फ़िगर करने के लिए, Ctrl + Shift + %s (अंग्रेजी लेआउट) को एक साथ दबाएँ",
+
+  "category.hphud.general": "[HPHUD] मॉड के हॉटकीज (सभी कॉम्बिनेशन Ctrl + Shift से शुरू होते हैं)",
+
+  "key.hphud.configure_mod": "मॉड कॉन्फ़िगरेशन मेनू खोलें",
+
+  "menu.hphud.configuration": "[HPHUD] कॉन्फ़िगरेशन मेनू",
+
+  "textfield.hphud.indicatorcolor": "संकेतक का रंग",
+
+  "checkbox.hphud.warningAfterPressMenuKey": "मेनू कुंजी दबाने के बाद चेतावनी",
+  "checkbox.hphud.greetingsAfterEnterInWorld": "दुनिया में प्रवेश करने के बाद स्वागत संदेश",
+
+  "button.hphud.currentHP": "वर्तमान स्वास्थ्य",
+  "button.hphud.currentWithMaxHP": "अधिकतम के साथ वर्तमान स्वास्थ्य",
+  "button.hphud.currentPercentageHP": "प्रतिशत में वर्तमान स्वास्थ्य",
+  "button.hphud.mods": "मोड",
+  "button.hphud.LEFT_UPPER_NEAR_CROSSHAIR": "ऊपर बाएँ",
+  "button.hphud.LEFT_NEAR_CROSSHAIR": "बाएँ",
+  "button.hphud.LEFT_BOTTOM_NEAR_CROSSHAIR": "नीचे बाएँ",
+  "button.hphud.BOTTOM_NEAR_CROSSHAIR": "नीचे",
+  "button.hphud.RIGHT_BOTTOM_NEAR_CROSSHAIR": "नीचे दाएँ",
+  "button.hphud.RIGHT_NEAR_CROSSHAIR": "दाएँ",
+  "button.hphud.RIGHT_UPPER_NEAR_CROSSHAIR": "ऊपर दाएँ",
+  "button.hphud.TOP_NEAR_CROSSHAIR": "ऊपर",
+  "button.hphud.position": "स्थिति",
+
+  "scroll.hphud.visibility_range": "दृश्यता रेंज (ब्लॉक्स में)",
+  "scroll.hphud.visibility_range_value": "दृश्यता रेंज (ब्लॉक्स में): %s",
+
+  "chat.hphud.keybind_config_menu_warging": "यदि आप [HPHUD] मॉड कॉन्फ़िगरेशन मेनू में प्रवेश करना चाहते हैं, तो Ctrl + Shift + %s दबाएँ, यदि यह संदेश गलती से दिखाई दिया है और आपके पास कीबाइंड्स का टकराव है, तो आप मॉड सेटिंग्स में जा सकते हैं (Ctrl + Shift + %s) और कीबाइंड बदल सकते हैं, या इस चेतावनी को अक्षम कर सकते हैं"
+}
+
