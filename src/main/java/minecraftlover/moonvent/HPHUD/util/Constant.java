@@ -122,29 +122,6 @@ public final class Constant {
     public static final String TOP_NEAR_CROSSHAIR = "TOP_NEAR_CROSSHAIR";
     public static final String BOTTOM_NEAR_CROSSHAIR = "BOTTOM_NEAR_CROSSHAIR";
     public static final String LEFT_NEAR_CROSSHAIR = "LEFT_NEAR_CROSSHAIR";
-    // public static final String
-    // RIGHT_UPPER_OF_SCREEN =
-    // "RIGHT_UPPER_OF_SCREEN";
-    // public static final String
-    // LEFT_BOTTOM_OF_SCREEN =
-    // "LEFT_BOTTOM_OF_SCREEN";
-    // public static final String
-    // RIGHT_BOTTOM_OF_SCREEN =
-    // "RIGHT_BOTTOM_OF_SCREEN";
-    // public static final String
-    // LEFT_OF_SCREEN =
-    // "LEFT_OF_SCREEN";
-    // public static final String
-    // RIGHT_OF_SCREEN =
-    // "RIGHT_OF_SCREEN";
-    // public static final String
-    // TOP_OF_SCREEN =
-    // "TOP_OF_SCREEN";
-    // public static final String
-    // BOTTOM_OF_SCREEN =
-    // "BOTTOM_OF_SCREEN";
-    public static final String CUSTOM_FROM_CENTER = "CUSTOM_FROM_CENTER";
-    public static final String FULL_CUSTOM = "FULL_CUSTOM";
   }
 
   public static final class ModConfigField {
@@ -157,7 +134,10 @@ public final class Constant {
   }
 
   public static final class LocalizationKey {
-    public static final String GREETINGS_IN_WORLD = "chat." + MOD_NAME_FOR_LOCALIZATION
+    public static final String CHAT_KEY = "chat.";
+    public static final String BUTTON_KEY = "button.";
+
+    public static final String GREETINGS_IN_WORLD = CHAT_KEY + MOD_NAME_FOR_LOCALIZATION
         + ".welcome";
     public static final String SETTINGS_CATEGORY_NAME = "category."
         + MOD_NAME_FOR_LOCALIZATION
@@ -169,13 +149,13 @@ public final class Constant {
     public static final String CONFIGURATION_MENU_NAME = "menu." + MOD_NAME_FOR_LOCALIZATION
         + ".configuration";
 
-    public static final String WARNING_IN_CHAT_ABOUT_CONFLICTS = "chat." + MOD_NAME_FOR_LOCALIZATION
+    public static final String WARNING_IN_CHAT_ABOUT_CONFLICTS = CHAT_KEY + MOD_NAME_FOR_LOCALIZATION
         + ".keybind_config_menu_warging";
 
     public static final String INDICATOR_COLOR_TEXTFIELD = "textfield."
         + MOD_NAME_FOR_LOCALIZATION + ".indicatorcolor";
 
-    public static final String MODE_BUTTON_CURRENT_HP = "button."
+    public static final String MODE_BUTTON_CURRENT_HP = BUTTON_KEY
         + MOD_NAME_FOR_LOCALIZATION +
         ".currentHP";
 
@@ -227,7 +207,6 @@ public final class Constant {
         + "." +
         INDICATOR_POSITION.LEFT_NEAR_CROSSHAIR;
 
-    public static final String VISIBILITY_RANGE = "scroll." + MOD_NAME_FOR_LOCALIZATION + ".visibility_range";
     public static final String VISIBILITY_RANGE_VALUE = "scroll." + MOD_NAME_FOR_LOCALIZATION
         + ".visibility_range_value";
 
@@ -248,7 +227,13 @@ public final class Constant {
     public static final String LEFT_NEAR_CROSSHAIR = "textures/gui/position/left.png";
   }
 
-  public static enum LayoutType {
+  public static final class ConfigurationMenu {
+    public static final int WIDGET_WIDTH = 150;
+    public static final int ROW_HEIGHT = 20;
+    public static final int SPACING = 4;
+  }
+
+  public enum LayoutType {
     VERTICAL, HORIZONTAL
   }
 

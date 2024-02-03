@@ -8,12 +8,12 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.*;
 import net.minecraft.client.texture.TextureManager;
 import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 
 import java.util.Arrays;
 
 import static minecraftlover.moonvent.HPHUD.util.Constant.*;
+import static minecraftlover.moonvent.HPHUD.util.Constant.ConfigurationMenu.*;
 import static minecraftlover.moonvent.HPHUD.util.Constant.LocalizationKey;
 
 public class ConfigurationScreen extends Screen {
@@ -38,7 +38,7 @@ public class ConfigurationScreen extends Screen {
   private static boolean needRefreshAfterUpdateColor = false;
 
   private int currentRowX, currentRowY, currentX, currentY, indicatorModeX, indicatorModeY, indicatorPositionX,
-      indicatorPositionY;
+      indicatorPositionY, cyclingButtonWidgetWidth, sliderWidth;
 
   public ConfigurationScreen() {
     super(Text.translatable(LocalizationKey.CONFIGURATION_MENU_NAME));
@@ -48,179 +48,20 @@ public class ConfigurationScreen extends Screen {
   protected void init() {
     super.init();
 
-    int widgetWidth = 150;
-    int rowHeight = 20;
-    int spacing = 4;
 
-    currentX = currentRowX = this.width / 2 - widgetWidth - spacing;
-    currentY = currentRowY = this.height / 2 - rowHeight * 5 - spacing * 5;
+    currentX = currentRowX = this.width / 2 - WIDGET_WIDTH - SPACING;
+    currentY = currentRowY = this.height / 2 - ROW_HEIGHT * 5 - SPACING * 5;
 
     currentIndicatorColor = Integer.parseInt(ModConfig.indicatorColor, 16);
 
-    indicatorColorLabelWidget = new TextWidget(currentRowX,
-        currentY,
-        widgetWidth,
-        rowHeight,
-        Text
-                .translatable(LocalizationKey.INDICATOR_COLOR_TEXTFIELD)
-                .withColor(currentIndicatorColor),
-        textRenderer);
+    addColorField();
+    loadTextures();
+    setupDefaultTextures();
+    loadToMinecraftTextures();
+    addModeSwitcher();
+    addPositionSwitcher();
+    addSearchSlider();
 
-    currentRowX += widgetWidth + spacing;
-    this.addDrawableChild(indicatorColorLabelWidget);
-
-    indicatorColorFieldWidget = new TextFieldWidget(this.textRenderer, currentRowX,
-        currentY,
-        widgetWidth,
-        rowHeight,
-        Text.of(ModConfig.indicatorColor));
-    indicatorColorFieldWidget.setMaxLength(COLOR_LENGTH);
-    indicatorColorFieldWidget.setPlaceholder(Text.translatable(ModConfig.indicatorColor).withColor(currentIndicatorColor));
-    indicatorColorFieldWidget.setText(ModConfig.indicatorColor);
-    indicatorColorFieldWidget.setEditableColor(currentIndicatorColor);
-    indicatorColorFieldWidget.setChangedListener(this::setupNewColor);
-
-    this.addDrawableChild(indicatorColorFieldWidget);
-
-    MOD_CURRENT_HP_TEXTURE = new Identifier(Constant.MOD_ID, Constant.ResourcesPath.MOD_CURRENT_HP);
-    MOD_CURRENT_WITH_MAX_HP_TEXTURE = new Identifier(Constant.MOD_ID, Constant.ResourcesPath.MOD_CURRENT_WITH_MAX_HP);
-    MOD_CURRENT_PERCENTAGE_HP_TEXTURE = new Identifier(Constant.MOD_ID,
-        Constant.ResourcesPath.MOD_CURRENT_PERCANTAGE_HP);
-
-    LEFT_NEAR_CROSSHAIR_TEXTURE = new Identifier(Constant.MOD_ID, Constant.ResourcesPath.LEFT_NEAR_CROSSHAIR);
-    RIGHT_NEAR_CROSSHAIR_TEXTURE = new Identifier(Constant.MOD_ID, Constant.ResourcesPath.RIGHT_NEAR_CROSSHAIR);
-    TOP_NEAR_CROSSHAIR_TEXTURE = new Identifier(Constant.MOD_ID, Constant.ResourcesPath.TOP_NEAR_CROSSHAIR);
-    BOTTOM_NEAR_CROSSHAIR_TEXTURE = new Identifier(Constant.MOD_ID, Constant.ResourcesPath.BOTTOM_NEAR_CROSSHAIR);
-    LEFT_UPPER_NEAR_CROSSHAIR_TEXTURE = new Identifier(Constant.MOD_ID,
-        Constant.ResourcesPath.LEFT_UPPER_NEAR_CROSSHAIR);
-    LEFT_BOTTOM_NEAR_CROSSHAIR_TEXTURE = new Identifier(Constant.MOD_ID,
-        Constant.ResourcesPath.LEFT_BOTTOM_NEAR_CROSSHAIR);
-    RIGHT_UPPER_NEAR_CROSSHAIR_TEXTURE = new Identifier(Constant.MOD_ID,
-        Constant.ResourcesPath.RIGHT_UPPER_NEAR_CROSSHAIR);
-    RIGHT_BOTTOM_NEAR_CROSSHAIR_TEXTURE = new Identifier(Constant.MOD_ID,
-        Constant.ResourcesPath.RIGHT_BOTTOM_NEAR_CROSSHAIR);
-
-    switch (ModConfig.outputIndicatorMode) {
-      case INDICATOR_TYPE.CURRENT_HP:
-        currentModeImage = MOD_CURRENT_HP_TEXTURE;
-        break;
-      case INDICATOR_TYPE.CURRENT_WITH_MAX_HP:
-        currentModeImage = MOD_CURRENT_WITH_MAX_HP_TEXTURE;
-        break;
-      case INDICATOR_TYPE.CURRENT_PERCENTAGE_HP:
-        currentModeImage = MOD_CURRENT_PERCENTAGE_HP_TEXTURE;
-        break;
-    }
-
-    switch (ModConfig.indicatorPosition) {
-      case INDICATOR_POSITION.LEFT_UPPER_NEAR_CROSSHAIR:
-        currentPositionImage = LEFT_UPPER_NEAR_CROSSHAIR_TEXTURE;
-        break;
-      case INDICATOR_POSITION.LEFT_NEAR_CROSSHAIR:
-        currentPositionImage = LEFT_NEAR_CROSSHAIR_TEXTURE;
-        break;
-      case INDICATOR_POSITION.LEFT_BOTTOM_NEAR_CROSSHAIR:
-        currentPositionImage = LEFT_BOTTOM_NEAR_CROSSHAIR_TEXTURE;
-        break;
-      case INDICATOR_POSITION.BOTTOM_NEAR_CROSSHAIR:
-        currentPositionImage = BOTTOM_NEAR_CROSSHAIR_TEXTURE;
-        break;
-      case INDICATOR_POSITION.RIGHT_BOTTOM_NEAR_CROSSHAIR:
-        currentPositionImage = RIGHT_BOTTOM_NEAR_CROSSHAIR_TEXTURE;
-        break;
-      case INDICATOR_POSITION.RIGHT_NEAR_CROSSHAIR:
-        currentPositionImage = RIGHT_NEAR_CROSSHAIR_TEXTURE;
-        break;
-      case INDICATOR_POSITION.RIGHT_UPPER_NEAR_CROSSHAIR:
-        currentPositionImage = RIGHT_UPPER_NEAR_CROSSHAIR_TEXTURE;
-        break;
-      case INDICATOR_POSITION.TOP_NEAR_CROSSHAIR:
-        currentPositionImage = TOP_NEAR_CROSSHAIR_TEXTURE;
-        break;
-    }
-
-    TextureManager textureManager = MinecraftClient.getInstance().getTextureManager();
-
-    for (Identifier image : Arrays.asList(MOD_CURRENT_HP_TEXTURE,
-        MOD_CURRENT_WITH_MAX_HP_TEXTURE,
-        MOD_CURRENT_PERCENTAGE_HP_TEXTURE,
-        LEFT_NEAR_CROSSHAIR_TEXTURE, RIGHT_NEAR_CROSSHAIR_TEXTURE, TOP_NEAR_CROSSHAIR_TEXTURE,
-        BOTTOM_NEAR_CROSSHAIR_TEXTURE, LEFT_UPPER_NEAR_CROSSHAIR_TEXTURE, LEFT_BOTTOM_NEAR_CROSSHAIR_TEXTURE,
-        RIGHT_UPPER_NEAR_CROSSHAIR_TEXTURE, RIGHT_BOTTOM_NEAR_CROSSHAIR_TEXTURE)) {
-      textureManager.bindTexture(image);
-    }
-
-    currentY += rowHeight + spacing;
-    currentRowY = currentY;
-    currentRowX = currentX;
-
-    int cyclingButtonWidgetWidth = widgetWidth * 2;
-
-    CyclingButtonWidget<String> outputModeButton = CyclingButtonWidget.<String>builder(Text::translatable)
-        .values(LocalizationKey.MODE_BUTTON_CURRENT_HP, LocalizationKey.MODE_BUTTON_CURRENT_WITH_MAX_HP,
-            LocalizationKey.MODE_BUTTON_CURRENT_PERCENTAGE_HP)
-          .initially("button." + MOD_NAME_FOR_LOCALIZATION + "." + ModConfig.outputIndicatorMode)
-        .build(this.width / 2 - cyclingButtonWidgetWidth / 2, currentY, cyclingButtonWidgetWidth, rowHeight,
-            Text.translatable(LocalizationKey.MODE_BUTTON_DESCRIPTION),
-            ((button, value) -> changeIndicatorMode(button, value)));
-    this.addDrawableChild(outputModeButton);
-
-    currentY += rowHeight + spacing;
-
-    indicatorModeY = currentY;
-    indicatorModeX = this.width / 2 - ResourcesPath.MOD_TEXTURE_SIZE / 2;
-
-    currentY += ResourcesPath.MOD_TEXTURE_SIZE + spacing;
-
-    indicatorPositionY = currentY;
-    indicatorPositionX = indicatorModeX;
-
-    CyclingButtonWidget<String> outputPositionButton = CyclingButtonWidget.<String>builder(Text::translatable)
-        .values(LocalizationKey.LEFT_UPPER_NEAR_CROSSHAIR,
-            LocalizationKey.LEFT_NEAR_CROSSHAIR,
-            LocalizationKey.LEFT_BOTTOM_NEAR_CROSSHAIR,
-            LocalizationKey.BOTTOM_NEAR_CROSSHAIR,
-            LocalizationKey.RIGHT_BOTTOM_NEAR_CROSSHAIR,
-            LocalizationKey.RIGHT_NEAR_CROSSHAIR,
-            LocalizationKey.RIGHT_UPPER_NEAR_CROSSHAIR,
-            LocalizationKey.TOP_NEAR_CROSSHAIR)
-        .initially("button." + MOD_NAME_FOR_LOCALIZATION + "." + ModConfig.indicatorPosition)
-        .build(this.width / 2 - cyclingButtonWidgetWidth / 2, currentY, cyclingButtonWidgetWidth, rowHeight,
-            Text.translatable(LocalizationKey.MODE_BUTTON_POSITION),
-            ((button, value) -> changeIndicatorPosition(button, value)));
-    this.addDrawableChild(outputPositionButton);
-
-    currentY += rowHeight + spacing;
-    indicatorPositionY = currentY;
-    indicatorPositionX = indicatorModeX;
-
-    currentY += ResourcesPath.MOD_TEXTURE_SIZE + spacing;
-
-    int sliderWidth = widgetWidth * 2;
-    SliderWidget sliderWidget = new SliderWidget(this.width / 2 - sliderWidth / 2,
-        currentY,
-        sliderWidth,
-        rowHeight,
-        Text.translatable(LocalizationKey.VISIBILITY_RANGE_VALUE, ModConfig.searchDistance),
-            ModConfig.searchDistance / (float) MAX_SEARCH_DISTANCE) {
-      @Override
-      protected void updateMessage() {
-        setMessage(Text.translatable(LocalizationKey.VISIBILITY_RANGE_VALUE, (int) (value * MAX_SEARCH_DISTANCE)));
-      }
-
-      @Override
-      protected void applyValue() {
-      }
-
-      @Override
-      public void onRelease(double mouseX, double mouseY) {
-        super.onRelease(mouseX, mouseY);
-        ModConfig.searchDistance = (int) (value * MAX_SEARCH_DISTANCE);
-
-        if (ModConfig.searchDistance == 0) ModConfig.searchDistance = MIN_SEARCH_DISTANCE;
-      }
-    };
-    this.addDrawableChild(sliderWidget);
   }
 
   private void changeIndicatorMode(CyclingButtonWidget button, String value) {
@@ -234,7 +75,7 @@ public class ConfigurationScreen extends Screen {
         break;
       default:
         currentModeImage = MOD_CURRENT_HP_TEXTURE;
-      }
+    }
     ModConfig.outputIndicatorMode = newSelectedHPMode;
   }
 
@@ -278,9 +119,9 @@ public class ConfigurationScreen extends Screen {
         ResourcesPath.MOD_TEXTURE_SIZE,
         ResourcesPath.MOD_TEXTURE_SIZE, ResourcesPath.MOD_TEXTURE_SIZE, ResourcesPath.MOD_TEXTURE_SIZE);
 
-//    if (needRefreshAfterUpdateColor) {
-//      indicatorColorLabelWidget.render(context, mouseX, mouseY, delta);
-//    }
+    // if (needRefreshAfterUpdateColor) {
+    // indicatorColorLabelWidget.render(context, mouseX, mouseY, delta);
+    // }
   }
 
   // public void render(MatrixStack matrices, int mouseX, int mouseY, float delta)
@@ -292,6 +133,7 @@ public class ConfigurationScreen extends Screen {
   // }
 
   private void setupNewColor(String newColorText) {
+    // TODO: make refreshing of color for indicator without reloading
     if (newColorText.length() == COLOR_LENGTH) {
       try {
         newIndicatorColor = Integer.parseInt(newColorText, 16);
@@ -299,17 +141,17 @@ public class ConfigurationScreen extends Screen {
         return;
       }
       indicatorColorLabelWidget.setTextColor(newIndicatorColor);
-//      this.remove(indicatorColorLabelWidget);
-//
-//      indicatorColorLabelWidget = new TextWidget(currentRowX,
-//              currentY,
-//              indicatorColorLabelWidget.getWidth(),
-//              indicatorColorLabelWidget.getHeight(),
-//              Text
-//                      .translatable(LocalizationKey.INDICATOR_COLOR_TEXTFIELD)
-//                      .withColor(newIndicatorColor),
-//              textRenderer);
-//      this.addDrawableChild(indicatorColorLabelWidget);
+      // this.remove(indicatorColorLabelWidget);
+      //
+      // indicatorColorLabelWidget = new TextWidget(currentRowX,
+      // currentY,
+      // indicatorColorLabelWidget.getWidth(),
+      // indicatorColorLabelWidget.getHeight(),
+      // Text
+      // .translatable(LocalizationKey.INDICATOR_COLOR_TEXTFIELD)
+      // .withColor(newIndicatorColor),
+      // textRenderer);
+      // this.addDrawableChild(indicatorColorLabelWidget);
 
       ModConfig.indicatorColor = newColorText;
     }
@@ -319,5 +161,187 @@ public class ConfigurationScreen extends Screen {
   public void close() {
     modConfig.save();
     super.close();
+  }
+
+  private void addColorField() {
+    indicatorColorLabelWidget = new TextWidget(currentRowX,
+            currentY,
+            WIDGET_WIDTH,
+            ROW_HEIGHT,
+            Text
+                    .translatable(LocalizationKey.INDICATOR_COLOR_TEXTFIELD)
+                    .withColor(currentIndicatorColor),
+            textRenderer);
+
+    currentRowX += WIDGET_WIDTH + SPACING;
+    this.addDrawableChild(indicatorColorLabelWidget);
+
+    indicatorColorFieldWidget = new TextFieldWidget(this.textRenderer, currentRowX,
+            currentY,
+            WIDGET_WIDTH,
+            ROW_HEIGHT,
+            Text.of(ModConfig.indicatorColor));
+    indicatorColorFieldWidget.setMaxLength(COLOR_LENGTH);
+    indicatorColorFieldWidget
+            .setPlaceholder(Text.translatable(ModConfig.indicatorColor).withColor(currentIndicatorColor));
+    indicatorColorFieldWidget.setText(ModConfig.indicatorColor);
+    indicatorColorFieldWidget.setEditableColor(currentIndicatorColor);
+    indicatorColorFieldWidget.setChangedListener(this::setupNewColor);
+
+    this.addDrawableChild(indicatorColorFieldWidget);
+
+    currentY += ROW_HEIGHT + SPACING;
+    currentRowY = currentY;
+    currentRowX = currentX;
+
+  }
+
+  private void loadTextures() {
+    MOD_CURRENT_HP_TEXTURE = new Identifier(Constant.MOD_ID, Constant.ResourcesPath.MOD_CURRENT_HP);
+    MOD_CURRENT_WITH_MAX_HP_TEXTURE = new Identifier(Constant.MOD_ID, Constant.ResourcesPath.MOD_CURRENT_WITH_MAX_HP);
+    MOD_CURRENT_PERCENTAGE_HP_TEXTURE = new Identifier(Constant.MOD_ID,
+            Constant.ResourcesPath.MOD_CURRENT_PERCANTAGE_HP);
+
+    LEFT_NEAR_CROSSHAIR_TEXTURE = new Identifier(Constant.MOD_ID, Constant.ResourcesPath.LEFT_NEAR_CROSSHAIR);
+    RIGHT_NEAR_CROSSHAIR_TEXTURE = new Identifier(Constant.MOD_ID, Constant.ResourcesPath.RIGHT_NEAR_CROSSHAIR);
+    TOP_NEAR_CROSSHAIR_TEXTURE = new Identifier(Constant.MOD_ID, Constant.ResourcesPath.TOP_NEAR_CROSSHAIR);
+    BOTTOM_NEAR_CROSSHAIR_TEXTURE = new Identifier(Constant.MOD_ID, Constant.ResourcesPath.BOTTOM_NEAR_CROSSHAIR);
+    LEFT_UPPER_NEAR_CROSSHAIR_TEXTURE = new Identifier(Constant.MOD_ID,
+            Constant.ResourcesPath.LEFT_UPPER_NEAR_CROSSHAIR);
+    LEFT_BOTTOM_NEAR_CROSSHAIR_TEXTURE = new Identifier(Constant.MOD_ID,
+            Constant.ResourcesPath.LEFT_BOTTOM_NEAR_CROSSHAIR);
+    RIGHT_UPPER_NEAR_CROSSHAIR_TEXTURE = new Identifier(Constant.MOD_ID,
+            Constant.ResourcesPath.RIGHT_UPPER_NEAR_CROSSHAIR);
+    RIGHT_BOTTOM_NEAR_CROSSHAIR_TEXTURE = new Identifier(Constant.MOD_ID,
+            Constant.ResourcesPath.RIGHT_BOTTOM_NEAR_CROSSHAIR);
+  }
+
+  private void setupDefaultTextures() {
+    switch (ModConfig.outputIndicatorMode) {
+      case INDICATOR_TYPE.CURRENT_HP:
+        currentModeImage = MOD_CURRENT_HP_TEXTURE;
+        break;
+      case INDICATOR_TYPE.CURRENT_WITH_MAX_HP:
+        currentModeImage = MOD_CURRENT_WITH_MAX_HP_TEXTURE;
+        break;
+      case INDICATOR_TYPE.CURRENT_PERCENTAGE_HP:
+        currentModeImage = MOD_CURRENT_PERCENTAGE_HP_TEXTURE;
+        break;
+    }
+
+    switch (ModConfig.indicatorPosition) {
+      case INDICATOR_POSITION.LEFT_UPPER_NEAR_CROSSHAIR:
+        currentPositionImage = LEFT_UPPER_NEAR_CROSSHAIR_TEXTURE;
+        break;
+      case INDICATOR_POSITION.LEFT_NEAR_CROSSHAIR:
+        currentPositionImage = LEFT_NEAR_CROSSHAIR_TEXTURE;
+        break;
+      case INDICATOR_POSITION.LEFT_BOTTOM_NEAR_CROSSHAIR:
+        currentPositionImage = LEFT_BOTTOM_NEAR_CROSSHAIR_TEXTURE;
+        break;
+      case INDICATOR_POSITION.BOTTOM_NEAR_CROSSHAIR:
+        currentPositionImage = BOTTOM_NEAR_CROSSHAIR_TEXTURE;
+        break;
+      case INDICATOR_POSITION.RIGHT_BOTTOM_NEAR_CROSSHAIR:
+        currentPositionImage = RIGHT_BOTTOM_NEAR_CROSSHAIR_TEXTURE;
+        break;
+      case INDICATOR_POSITION.RIGHT_NEAR_CROSSHAIR:
+        currentPositionImage = RIGHT_NEAR_CROSSHAIR_TEXTURE;
+        break;
+      case INDICATOR_POSITION.RIGHT_UPPER_NEAR_CROSSHAIR:
+        currentPositionImage = RIGHT_UPPER_NEAR_CROSSHAIR_TEXTURE;
+        break;
+      case INDICATOR_POSITION.TOP_NEAR_CROSSHAIR:
+        currentPositionImage = TOP_NEAR_CROSSHAIR_TEXTURE;
+        break;
+    }
+  }
+
+  private void loadToMinecraftTextures() {
+    TextureManager textureManager = MinecraftClient.getInstance().getTextureManager();
+
+    for (Identifier image : Arrays.asList(MOD_CURRENT_HP_TEXTURE,
+            MOD_CURRENT_WITH_MAX_HP_TEXTURE,
+            MOD_CURRENT_PERCENTAGE_HP_TEXTURE,
+            LEFT_NEAR_CROSSHAIR_TEXTURE, RIGHT_NEAR_CROSSHAIR_TEXTURE, TOP_NEAR_CROSSHAIR_TEXTURE,
+            BOTTOM_NEAR_CROSSHAIR_TEXTURE, LEFT_UPPER_NEAR_CROSSHAIR_TEXTURE, LEFT_BOTTOM_NEAR_CROSSHAIR_TEXTURE,
+            RIGHT_UPPER_NEAR_CROSSHAIR_TEXTURE, RIGHT_BOTTOM_NEAR_CROSSHAIR_TEXTURE)) {
+      textureManager.bindTexture(image);
+    }
+  }
+
+  private void addModeSwitcher() {
+    cyclingButtonWidgetWidth = WIDGET_WIDTH * 2;
+
+    CyclingButtonWidget<String> outputModeButton = CyclingButtonWidget.<String>builder(Text::translatable)
+            .values(LocalizationKey.MODE_BUTTON_CURRENT_HP, LocalizationKey.MODE_BUTTON_CURRENT_WITH_MAX_HP,
+                    LocalizationKey.MODE_BUTTON_CURRENT_PERCENTAGE_HP)
+            .initially("button." + MOD_NAME_FOR_LOCALIZATION + "." + ModConfig.outputIndicatorMode)
+            .build(this.width / 2 - cyclingButtonWidgetWidth / 2, currentY, cyclingButtonWidgetWidth, ROW_HEIGHT,
+                    Text.translatable(LocalizationKey.MODE_BUTTON_DESCRIPTION),
+                    ((button, value) -> changeIndicatorMode(button, value)));
+    this.addDrawableChild(outputModeButton);
+
+    currentY += ROW_HEIGHT + SPACING;
+
+    indicatorModeY = currentY;
+    indicatorModeX = this.width / 2 - ResourcesPath.MOD_TEXTURE_SIZE / 2;
+
+    currentY += ResourcesPath.MOD_TEXTURE_SIZE + SPACING;
+
+    indicatorPositionY = currentY;
+    indicatorPositionX = indicatorModeX;
+  }
+
+  private void addPositionSwitcher() {
+    CyclingButtonWidget<String> outputPositionButton = CyclingButtonWidget.<String>builder(Text::translatable)
+            .values(LocalizationKey.LEFT_UPPER_NEAR_CROSSHAIR,
+                    LocalizationKey.LEFT_NEAR_CROSSHAIR,
+                    LocalizationKey.LEFT_BOTTOM_NEAR_CROSSHAIR,
+                    LocalizationKey.BOTTOM_NEAR_CROSSHAIR,
+                    LocalizationKey.RIGHT_BOTTOM_NEAR_CROSSHAIR,
+                    LocalizationKey.RIGHT_NEAR_CROSSHAIR,
+                    LocalizationKey.RIGHT_UPPER_NEAR_CROSSHAIR,
+                    LocalizationKey.TOP_NEAR_CROSSHAIR)
+            .initially("button." + MOD_NAME_FOR_LOCALIZATION + "." + ModConfig.indicatorPosition)
+            .build(this.width / 2 - cyclingButtonWidgetWidth / 2, currentY, cyclingButtonWidgetWidth, ROW_HEIGHT,
+                    Text.translatable(LocalizationKey.MODE_BUTTON_POSITION),
+                    ((button, value) -> changeIndicatorPosition(button, value)));
+    this.addDrawableChild(outputPositionButton);
+
+    currentY += ROW_HEIGHT + SPACING;
+    indicatorPositionY = currentY;
+    indicatorPositionX = indicatorModeX;
+
+    currentY += ResourcesPath.MOD_TEXTURE_SIZE + SPACING;
+  }
+
+  private void addSearchSlider() {
+    sliderWidth = WIDGET_WIDTH * 2;
+    SliderWidget sliderWidget = new SliderWidget(this.width / 2 - sliderWidth / 2,
+            currentY,
+            sliderWidth,
+            ROW_HEIGHT,
+            Text.translatable(LocalizationKey.VISIBILITY_RANGE_VALUE, ModConfig.searchDistance),
+            ModConfig.searchDistance / (float) MAX_SEARCH_DISTANCE) {
+      @Override
+      protected void updateMessage() {
+        setMessage(Text.translatable(LocalizationKey.VISIBILITY_RANGE_VALUE, (int) (value * MAX_SEARCH_DISTANCE)));
+      }
+
+      @Override
+      protected void applyValue() {
+      }
+
+      @Override
+      public void onRelease(double mouseX, double mouseY) {
+        super.onRelease(mouseX, mouseY);
+        ModConfig.searchDistance = (int) (value * MAX_SEARCH_DISTANCE);
+
+        if (ModConfig.searchDistance == 0)
+          ModConfig.searchDistance = MIN_SEARCH_DISTANCE;
+      }
+    };
+    this.addDrawableChild(sliderWidget);
   }
 }
