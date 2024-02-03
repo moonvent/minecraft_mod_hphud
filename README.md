@@ -6,13 +6,33 @@
 
 This mod allows you to see the amount of health points of a mob, player, or any other entity that has health points. The goal of the mod is to provide a more convenient way to view health points than other health indicators. Unlike other mods that display health points in the top left or top center of the screen, this mod displays the health points near the player's crosshair. This is especially useful for large monitors with small interface sizes or when the mob itself is large
 
-In the future, you will be able to easily customize the color of the indicator, its location, and add additional meta information such as total health
-
 The mod itself is very lightweight and will run smoothly even on older machines. Additionally, it is open-source, which means you can easily inspect the code, modify it, and use it in your own projects. I would be grateful for a shoutout if you do so
 
-At this stage, the mod only displays the amount of health points. Customizable color and location options are not yet available, but I am working on them and am currently learning Java and mod development in general. They will be available soon
-
 I have tested the mod on both 4K and 1366x768 monitors, and it works well on all scales. If you have any trouble seeing the health numbers, please let me know in the comments or private messages
+
+Mod support localization on this languges:
+* English
+* German
+* Japanese
+* Chinese (Traditional)
+* Chinese (Simplified)
+* Italian
+* French
+* Ukrainian
+* Turkish
+* Russian
+* Belarusian
+* Kazakh
+* Georgian
+* Polish
+* Portuguese
+* Dutch
+* Korean
+* Indian (Hindi)
+* Spanish
+
+If you didn't see your language, just ping me in comments or create an issue, and I add your language to mod.
+
 
 Mod holding on curseforge: https://curseforge.com/minecraft/mc-mods/hphud
 
@@ -34,11 +54,11 @@ Thank you for your attention and enjoy using my mod! If you have any suggestions
 
 ---
 
-## <span style="color: red">README (Some interested advices)</span>
+## <span style="color: yellow">README (Some interested advices)</span>
 
 **<span style="color: yellow">Warning is begin</span>**
 
-If you migrate from vesion older version of mod, please, remove the file: 
+If you migrate from older version of mod, please, remove the file: 
 `your_minecraft_folder/config/HPHUD.cfg`
 
 Before start minecraft with new mod version
@@ -70,8 +90,8 @@ Exactly config file and all documentation I left above, and now, you can see som
 ![Mod with default settings at night](https://media.forgecdn.net/attachments/795/151/2024-01-23_19.png)
 ![Changing color and type of hp display](https://media.forgecdn.net/attachments/795/898/1.jpg)
 ![Percentage mod and change position feature](https://media.forgecdn.net/attachments/797/484/2024-01-27_15.png)
-![Configuration menu 1](https://media.forgecdn.net/attachments/797/484/2024-01-27_15.png)
-![Configuration menu 2 (on other language and params)](https://media.forgecdn.net/attachments/797/484/2024-01-27_15.png)
+![Configuration menu 1](https://media.forgecdn.net/attachments/801/778/1.png)
+![Configuration menu 2 (other language and params)](https://media.forgecdn.net/attachments/801/779/2.png)
 
 
 ---
