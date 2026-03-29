@@ -56,7 +56,7 @@ public class ConfigurationScreen extends Screen {
     currentX = currentRowX = this.width / 2 - WIDGET_WIDTH - SPACING;
     currentY = currentRowY = this.height / 2 - ROW_HEIGHT * 5 - SPACING * 5;
 
-    currentIndicatorColor = Integer.parseInt(ModConfig.indicatorColor, 16);
+    currentIndicatorColor = 0xFF000000 | Integer.parseInt(ModConfig.indicatorColor, 16);
 
     addColorField();
     loadTextures();
@@ -118,9 +118,9 @@ public class ConfigurationScreen extends Screen {
   @Override
   public void render(DrawContext context, int mouseX, int mouseY, float delta) {
     super.render(context, mouseX, mouseY, delta);
-    context.drawGuiTexture(RenderPipelines.GUI_TEXTURED, currentModeImage, indicatorModeX, indicatorModeY, 0, 0, ResourcesPath.MOD_TEXTURE_SIZE,
+    context.drawTexture(RenderPipelines.GUI_TEXTURED, currentModeImage, indicatorModeX, indicatorModeY, 0, 0, ResourcesPath.MOD_TEXTURE_SIZE,
         ResourcesPath.MOD_TEXTURE_SIZE, ResourcesPath.MOD_TEXTURE_SIZE, ResourcesPath.MOD_TEXTURE_SIZE);
-    context.drawGuiTexture(RenderPipelines.GUI_TEXTURED, currentPositionImage, indicatorPositionX, indicatorPositionY, 0, 0,
+    context.drawTexture(RenderPipelines.GUI_TEXTURED, currentPositionImage, indicatorPositionX, indicatorPositionY, 0, 0,
         ResourcesPath.MOD_TEXTURE_SIZE,
         ResourcesPath.MOD_TEXTURE_SIZE, ResourcesPath.MOD_TEXTURE_SIZE, ResourcesPath.MOD_TEXTURE_SIZE);
 
@@ -153,7 +153,7 @@ public class ConfigurationScreen extends Screen {
 //     this.addDrawableChild(indicatorColorLabelWidget);
     if (newColorText.length() == COLOR_LENGTH) {
       try {
-        newIndicatorColor = Integer.parseInt(newColorText, 16);
+        newIndicatorColor = 0xFF000000 | Integer.parseInt(newColorText, 16);
       } catch (NumberFormatException e) {
         return;
       }
