@@ -4,16 +4,16 @@ import minecraftlover.moonvent.HPHUD.config.ModConfig;
 import minecraftlover.moonvent.HPHUD.util.Constant;
 import minecraftlover.moonvent.HPHUD.util.IndicatorCoordinate;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElement;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.font.TextRenderer;
-import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.render.RenderTickCounter;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.projectile.ProjectileUtil;
-import net.minecraft.util.hit.EntityHitResult;
-import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.client.DeltaTracker;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.ProjectileUtil;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.function.Predicate;
 
@@ -26,59 +26,56 @@ public class HPHudRenderer implements HudElement {
     private int textHeight;
 
     @Override
-    public void render(DrawContext context, RenderTickCounter tickCounter) {
-        MinecraftClient client = MinecraftClient.getInstance();
+    public void extractRenderState(GuiGraphicsExtractor context, DeltaTracker tickCounter) {
+        Minecraft client = Minecraft.getInstance();
 
-        if (client.currentScreen != null) return;
-        if (client.getCameraEntity() == null) return;
+        if (client.screen != null)
+            return;
+        if (client.getCameraEntity() == null)
+            return;
 
         IndicatorCoordinate indicatorCoordinate = IndicatorCoordinate.getInstance();
-        if (indicatorCoordinate == null) return;
+        if (indicatorCoordinate == null)
+            return;
 
-        if (client.getWindow() != null) {
-            indicatorCoordinate.updateFromWindow(
-                client.getWindow().getScaledWidth(),
-                client.getWindow().getScaledHeight()
-            );
-        }
-        int x = context.getScaledWindowWidth() / 2;
-        int y = context.getScaledWindowHeight() / 2;
+        indicatorCoordinate.updateFromWindow(
+                context.guiWidth(),
+                context.guiHeight());
 
         ModConfig config = ModConfig.getInstance();
-        TextRenderer textRenderer = client.textRenderer;
+        var font = client.font;
         Entity viewer = client.getCameraEntity();
 
-        Vec3d position = viewer.getCameraPosVec(tickCounter.getDynamicDeltaTicks());
-        Vec3d look = viewer.getRotationVec(1.0F);
-        Vec3d max = position.add(
-            look.x * config.searchDistance,
-            look.y * config.searchDistance,
-            look.z * config.searchDistance
-        );
-        Box searchBox = viewer.getBoundingBox()
-            .stretch(look.multiply(config.searchDistance))
-            .expand(1.0D, 1.0D, 1.0D);
+        Vec3 position = viewer.getEyePosition(tickCounter.getGameTimeDeltaPartialTick(true));
+        Vec3 look = viewer.getViewVector(1.0F);
+        Vec3 max = position.add(
+                look.x * config.searchDistance,
+                look.y * config.searchDistance,
+                look.z * config.searchDistance);
+        AABB searchBox = viewer.getBoundingBox()
+                .expandTowards(look.scale(config.searchDistance))
+                .inflate(1.0D, 1.0D, 1.0D);
 
         Predicate<Entity> isPositive = entity -> true;
-        EntityHitResult result = ProjectileUtil.raycast(
-            viewer, position, max, searchBox, isPositive,
-            config.searchDistance * config.searchDistance
-        );
-        // System.out.println("result: " + result);
+        EntityHitResult result = ProjectileUtil.getEntityHitResult(
+                viewer, position, max, searchBox, isPositive,
+                config.searchDistance * config.searchDistance);
 
         if (result != null && result.getEntity() instanceof LivingEntity target) {
             getTextForIndicator(target, config);
-            if (indicatorText == null) return;
+            if (indicatorText == null)
+                return;
 
-            textWidth = textRenderer.getWidth(net.minecraft.text.Text.literal(indicatorText));
-            textHeight = textRenderer.getWrappedLinesHeight(net.minecraft.text.Text.literal(indicatorText), textWidth);
+            textWidth = font.width(indicatorText);
+            // textHeight = font.wordWrapHeight(indicatorText, textWidth);
+            textHeight = font.lineHeight;
 
-            context.drawTextWithShadow(textRenderer,
-                indicatorText,
-                indicatorCoordinate.getX() - textWidth / 2,
-                indicatorCoordinate.getY() - textHeight / 2,
-               0xFF000000 |  Integer.parseInt(config.indicatorColor, 16)
-                );
+            context.text(font,
+                    indicatorText,
+                    indicatorCoordinate.getX() - textWidth / 2,
+                    indicatorCoordinate.getY() - textHeight / 2,
+                    0xFF000000 | Integer.parseInt(config.indicatorColor, 16),
+                    true);
         }
     }
 
@@ -99,7 +96,7 @@ public class HPHudRenderer implements HudElement {
                 break;
             case Constant.IndicatorType.CURRENT_PERCENTAGE_HP:
                 indicatorText = String.format("%s %%",
-                    (int) Math.ceil((float) currentHealth / (float) maxHealth * 100.0));
+                        (int) Math.ceil((float) currentHealth / (float) maxHealth * 100.0));
                 break;
             default:
                 indicatorText = String.format("%s", currentHealth);
@@ -108,7 +105,7 @@ public class HPHudRenderer implements HudElement {
 
         if (currentEntityHealthLength < maxEntityHpAmountLength)
             indicatorText = String.format(
-                "%" + (maxEntityHpAmountLength - currentEntityHealthLength) + "s%s",
-                "", indicatorText);
+                    "%" + (maxEntityHpAmountLength - currentEntityHealthLength) + "s%s",
+                    "", indicatorText);
     }
 }

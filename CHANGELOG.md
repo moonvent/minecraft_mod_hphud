@@ -1,3 +1,7 @@
+# 26.1
+
+1. Update compatibility for 26.1 minecraft.
+
 # 1.21.11
 
 1. Add compatibility with 1.21.11.
