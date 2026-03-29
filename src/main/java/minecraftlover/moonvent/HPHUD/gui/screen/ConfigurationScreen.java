@@ -6,9 +6,9 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.*;
-import net.minecraft.client.texture.TextureManager;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.client.render.RenderLayer;
 
 import java.util.Arrays;
 
@@ -60,7 +60,6 @@ public class ConfigurationScreen extends Screen {
     addColorField();
     loadTextures();
     setupDefaultTextures();
-    loadToMinecraftTextures();
     addModeSwitcher();
     addPositionSwitcher();
     addSearchSlider();
@@ -118,9 +117,9 @@ public class ConfigurationScreen extends Screen {
   @Override
   public void render(DrawContext context, int mouseX, int mouseY, float delta) {
     super.render(context, mouseX, mouseY, delta);
-    context.drawTexture(currentModeImage, indicatorModeX, indicatorModeY, 0, 0, ResourcesPath.MOD_TEXTURE_SIZE,
+    context.drawTexture(RenderLayer::getGuiTextured, currentModeImage, indicatorModeX, indicatorModeY, 0, 0, ResourcesPath.MOD_TEXTURE_SIZE,
         ResourcesPath.MOD_TEXTURE_SIZE, ResourcesPath.MOD_TEXTURE_SIZE, ResourcesPath.MOD_TEXTURE_SIZE);
-    context.drawTexture(currentPositionImage, indicatorPositionX, indicatorPositionY, 0, 0,
+    context.drawTexture(RenderLayer::getGuiTextured, currentPositionImage, indicatorPositionX, indicatorPositionY, 0, 0,
         ResourcesPath.MOD_TEXTURE_SIZE,
         ResourcesPath.MOD_TEXTURE_SIZE, ResourcesPath.MOD_TEXTURE_SIZE, ResourcesPath.MOD_TEXTURE_SIZE);
 
@@ -215,22 +214,22 @@ public class ConfigurationScreen extends Screen {
   }
 
   private void loadTextures() {
-    MOD_CURRENT_HP_TEXTURE = new Identifier(Constant.MOD_ID, Constant.ResourcesPath.MOD_CURRENT_HP);
-    MOD_CURRENT_WITH_MAX_HP_TEXTURE = new Identifier(Constant.MOD_ID, Constant.ResourcesPath.MOD_CURRENT_WITH_MAX_HP);
-    MOD_CURRENT_PERCENTAGE_HP_TEXTURE = new Identifier(Constant.MOD_ID,
+    MOD_CURRENT_HP_TEXTURE = Identifier.of(Constant.MOD_ID, Constant.ResourcesPath.MOD_CURRENT_HP);
+    MOD_CURRENT_WITH_MAX_HP_TEXTURE = Identifier.of(Constant.MOD_ID, Constant.ResourcesPath.MOD_CURRENT_WITH_MAX_HP);
+    MOD_CURRENT_PERCENTAGE_HP_TEXTURE = Identifier.of(Constant.MOD_ID,
             Constant.ResourcesPath.MOD_CURRENT_PERCANTAGE_HP);
 
-    LEFT_NEAR_CROSSHAIR_TEXTURE = new Identifier(Constant.MOD_ID, Constant.ResourcesPath.LEFT_NEAR_CROSSHAIR);
-    RIGHT_NEAR_CROSSHAIR_TEXTURE = new Identifier(Constant.MOD_ID, Constant.ResourcesPath.RIGHT_NEAR_CROSSHAIR);
-    TOP_NEAR_CROSSHAIR_TEXTURE = new Identifier(Constant.MOD_ID, Constant.ResourcesPath.TOP_NEAR_CROSSHAIR);
-    BOTTOM_NEAR_CROSSHAIR_TEXTURE = new Identifier(Constant.MOD_ID, Constant.ResourcesPath.BOTTOM_NEAR_CROSSHAIR);
-    LEFT_UPPER_NEAR_CROSSHAIR_TEXTURE = new Identifier(Constant.MOD_ID,
+    LEFT_NEAR_CROSSHAIR_TEXTURE = Identifier.of(Constant.MOD_ID, Constant.ResourcesPath.LEFT_NEAR_CROSSHAIR);
+    RIGHT_NEAR_CROSSHAIR_TEXTURE = Identifier.of(Constant.MOD_ID, Constant.ResourcesPath.RIGHT_NEAR_CROSSHAIR);
+    TOP_NEAR_CROSSHAIR_TEXTURE = Identifier.of(Constant.MOD_ID, Constant.ResourcesPath.TOP_NEAR_CROSSHAIR);
+    BOTTOM_NEAR_CROSSHAIR_TEXTURE = Identifier.of(Constant.MOD_ID, Constant.ResourcesPath.BOTTOM_NEAR_CROSSHAIR);
+    LEFT_UPPER_NEAR_CROSSHAIR_TEXTURE = Identifier.of(Constant.MOD_ID,
             Constant.ResourcesPath.LEFT_UPPER_NEAR_CROSSHAIR);
-    LEFT_BOTTOM_NEAR_CROSSHAIR_TEXTURE = new Identifier(Constant.MOD_ID,
+    LEFT_BOTTOM_NEAR_CROSSHAIR_TEXTURE = Identifier.of(Constant.MOD_ID,
             Constant.ResourcesPath.LEFT_BOTTOM_NEAR_CROSSHAIR);
-    RIGHT_UPPER_NEAR_CROSSHAIR_TEXTURE = new Identifier(Constant.MOD_ID,
+    RIGHT_UPPER_NEAR_CROSSHAIR_TEXTURE = Identifier.of(Constant.MOD_ID,
             Constant.ResourcesPath.RIGHT_UPPER_NEAR_CROSSHAIR);
-    RIGHT_BOTTOM_NEAR_CROSSHAIR_TEXTURE = new Identifier(Constant.MOD_ID,
+    RIGHT_BOTTOM_NEAR_CROSSHAIR_TEXTURE = Identifier.of(Constant.MOD_ID,
             Constant.ResourcesPath.RIGHT_BOTTOM_NEAR_CROSSHAIR);
   }
 
@@ -272,19 +271,6 @@ public class ConfigurationScreen extends Screen {
       case IndicatorPosition.TOP_NEAR_CROSSHAIR:
         currentPositionImage = TOP_NEAR_CROSSHAIR_TEXTURE;
         break;
-    }
-  }
-
-  private void loadToMinecraftTextures() {
-    TextureManager textureManager = MinecraftClient.getInstance().getTextureManager();
-
-    for (Identifier image : Arrays.asList(MOD_CURRENT_HP_TEXTURE,
-            MOD_CURRENT_WITH_MAX_HP_TEXTURE,
-            MOD_CURRENT_PERCENTAGE_HP_TEXTURE,
-            LEFT_NEAR_CROSSHAIR_TEXTURE, RIGHT_NEAR_CROSSHAIR_TEXTURE, TOP_NEAR_CROSSHAIR_TEXTURE,
-            BOTTOM_NEAR_CROSSHAIR_TEXTURE, LEFT_UPPER_NEAR_CROSSHAIR_TEXTURE, LEFT_BOTTOM_NEAR_CROSSHAIR_TEXTURE,
-            RIGHT_UPPER_NEAR_CROSSHAIR_TEXTURE, RIGHT_BOTTOM_NEAR_CROSSHAIR_TEXTURE)) {
-      textureManager.bindTexture(image);
     }
   }
 

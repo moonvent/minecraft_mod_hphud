@@ -22,9 +22,8 @@
 		"hphud.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.15.3",
-		"minecraft": ">=1.20",
-		"java": ">=17",
+		"fabricloader": ">=0.16.0",
+		"minecraft": ">=1.21 <=1.21.5",
 		"fabric-api": "*"
 	}
 }

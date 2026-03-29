@@ -1,5 +1,5 @@
 package minecraftlover.moonvent.HPHUD.mixin;
-
+import net.minecraft.client.render.RenderTickCounter;
 import minecraftlover.moonvent.HPHUD.config.ModConfig;
 import minecraftlover.moonvent.HPHUD.util.Constant;
 import minecraftlover.moonvent.HPHUD.util.IndicatorCoordinate;
@@ -42,7 +42,7 @@ public class PlayHUDMixin {
   private int textHeight;
 
   @Inject(method = "render", at = @At("RETURN"))
-  private void render(DrawContext context, float tickDelta, CallbackInfo ci) {
+  private void render(DrawContext context, RenderTickCounter tickCounter, CallbackInfo ci) {
 
     MinecraftClient minecraftClient = MinecraftClient.getInstance();
     TextRenderer textRenderer = minecraftClient.textRenderer;
@@ -66,7 +66,7 @@ public class PlayHUDMixin {
 
       Entity viewer = minecraftClient.getCameraEntity();
 
-      Vec3d position = viewer.getCameraPosVec(tickDelta);
+      Vec3d position = viewer.getCameraPosVec(tickCounter.getTickDelta(true));
       Vec3d look = viewer.getRotationVec(1.0F);
 
       Vec3d max = position.add(look.x * config.searchDistance, look.y * config.searchDistance,
