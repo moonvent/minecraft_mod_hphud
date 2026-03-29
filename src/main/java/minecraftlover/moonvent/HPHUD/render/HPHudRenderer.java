@@ -70,8 +70,8 @@ public class HPHudRenderer implements HudElement {
             getTextForIndicator(target, config);
             if (indicatorText == null) return;
 
-            textWidth = textRenderer.getWidth(indicatorText);
-            textHeight = textRenderer.getWrappedLinesHeight(indicatorText, textWidth);
+            textWidth = textRenderer.getWidth(net.minecraft.text.Text.literal(indicatorText));
+            textHeight = textRenderer.getWrappedLinesHeight(net.minecraft.text.Text.literal(indicatorText), textWidth);
 
             context.drawTextWithShadow(textRenderer,
                 indicatorText,

@@ -1,5 +1,5 @@
 package minecraftlover.moonvent.HPHUD.gui.screen;
-
+import java.util.function.Supplier;
 import minecraftlover.moonvent.HPHUD.config.ModConfig;
 import minecraftlover.moonvent.HPHUD.util.Constant;
 import net.minecraft.client.MinecraftClient;
@@ -289,10 +289,9 @@ protected void init() {
   private void addModeSwitcher() {
     cyclingButtonWidgetWidth = WIDGET_WIDTH * 2;
 
-    CyclingButtonWidget<String> outputModeButton = CyclingButtonWidget.<String>builder(Text::translatable)
+    CyclingButtonWidget<String> outputModeButton = CyclingButtonWidget.<String>builder(Text::translatable, BUTTON_KEY + MOD_NAME_FOR_LOCALIZATION + "." + ModConfig.outputIndicatorMode)
             .values(LocalizationKey.MODE_BUTTON_CURRENT_HP, LocalizationKey.MODE_BUTTON_CURRENT_WITH_MAX_HP,
                     LocalizationKey.MODE_BUTTON_CURRENT_PERCENTAGE_HP)
-            .initially(BUTTON_KEY + MOD_NAME_FOR_LOCALIZATION + "." + ModConfig.outputIndicatorMode)
             .build(this.width / 2 - cyclingButtonWidgetWidth / 2, currentY, cyclingButtonWidgetWidth, ROW_HEIGHT,
                     Text.translatable(LocalizationKey.MODE_BUTTON_DESCRIPTION),
                     ((button, value) -> changeIndicatorMode(button, value)));
@@ -310,7 +309,7 @@ protected void init() {
   }
 
   private void addPositionSwitcher() {
-    CyclingButtonWidget<String> outputPositionButton = CyclingButtonWidget.<String>builder(Text::translatable)
+    CyclingButtonWidget<String> outputPositionButton = CyclingButtonWidget.<String>builder(Text::translatable, BUTTON_KEY + MOD_NAME_FOR_LOCALIZATION + "." + ModConfig.indicatorPosition)
             .values(LocalizationKey.LEFT_UPPER_NEAR_CROSSHAIR,
                     LocalizationKey.LEFT_NEAR_CROSSHAIR,
                     LocalizationKey.LEFT_BOTTOM_NEAR_CROSSHAIR,
@@ -319,7 +318,6 @@ protected void init() {
                     LocalizationKey.RIGHT_NEAR_CROSSHAIR,
                     LocalizationKey.RIGHT_UPPER_NEAR_CROSSHAIR,
                     LocalizationKey.TOP_NEAR_CROSSHAIR)
-            .initially(BUTTON_KEY + MOD_NAME_FOR_LOCALIZATION + "." + ModConfig.indicatorPosition)
             .build(this.width / 2 - cyclingButtonWidgetWidth / 2, currentY, cyclingButtonWidgetWidth, ROW_HEIGHT,
                     Text.translatable(LocalizationKey.MODE_BUTTON_POSITION),
                     ((button, value) -> changeIndicatorPosition(button, value)));
