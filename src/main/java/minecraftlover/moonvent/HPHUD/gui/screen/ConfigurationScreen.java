@@ -347,16 +347,11 @@ protected void init() {
 
       @Override
       protected void applyValue() {
+          ModConfig.searchDistance = (int) (value * MAX_SEARCH_DISTANCE);
+          if (ModConfig.searchDistance == 0)
+              ModConfig.searchDistance = MIN_SEARCH_DISTANCE;
       }
 
-      @Override
-      public void onRelease(double mouseX, double mouseY) {
-        super.onRelease(mouseX, mouseY);
-        ModConfig.searchDistance = (int) (value * MAX_SEARCH_DISTANCE);
-
-        if (ModConfig.searchDistance == 0)
-          ModConfig.searchDistance = MIN_SEARCH_DISTANCE;
-      }
     };
     this.addDrawableChild(sliderWidget);
     currentY += ROW_HEIGHT + SPACING;

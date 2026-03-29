@@ -25,12 +25,14 @@ public class KeybindsSetup {
   }
 
   private void setupOpenConfigurationMenuKey() {
+    KeyBinding.Category category = KeyBinding.Category.create(
+        net.minecraft.util.Identifier.of(Constant.MOD_ID, "general"));
+
     openConfigurationMenuKey = new KeyBinding(
         Constant.LocalizationKey.SETTINGS_DESCRIPTION_CONFIGURE_KEY,
         InputUtil.Type.KEYSYM,
         GLFW.GLFW_KEY_H,
-        Constant.LocalizationKey.SETTINGS_CATEGORY_NAME);
-
+        category);
     KeyBindingHelper.registerKeyBinding(openConfigurationMenuKey);
 
     ClientTickEvents.END_CLIENT_TICK.register(client -> {
@@ -49,12 +51,11 @@ public class KeybindsSetup {
   }
 
   private boolean isCtrlShiftPressed() {
-    long handle = MinecraftClient.getInstance().getWindow().getHandle();
-
-    return ((InputUtil.isKeyPressed(handle, GLFW.GLFW_KEY_LEFT_SHIFT)
-        || InputUtil.isKeyPressed(handle, GLFW.GLFW_KEY_RIGHT_SHIFT))
-        && (InputUtil.isKeyPressed(handle, GLFW.GLFW_KEY_LEFT_CONTROL)
-            || InputUtil.isKeyPressed(handle, GLFW.GLFW_KEY_RIGHT_CONTROL)));
+    net.minecraft.client.util.Window window = MinecraftClient.getInstance().getWindow();
+    return ((InputUtil.isKeyPressed(window, GLFW.GLFW_KEY_LEFT_SHIFT)
+        || InputUtil.isKeyPressed(window, GLFW.GLFW_KEY_RIGHT_SHIFT))
+        && (InputUtil.isKeyPressed(window, GLFW.GLFW_KEY_LEFT_CONTROL)
+            || InputUtil.isKeyPressed(window, GLFW.GLFW_KEY_RIGHT_CONTROL)));
   }
 
 }
