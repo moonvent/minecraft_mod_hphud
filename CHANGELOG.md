@@ -1,6 +1,7 @@
-# 1.21.6+
+# 1.21.6-1.21.8
 
-1. Update to minecraft version 1.21.6+
+1. Update to minecraft version 1.21.6-1.21.8;
+2. Fix ui when gui is large, it can be scrolled right now;
 
 # 1.21-1.21.5
 

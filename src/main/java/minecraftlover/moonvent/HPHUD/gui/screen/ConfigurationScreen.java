@@ -28,6 +28,9 @@ public class ConfigurationScreen extends Screen {
       BOTTOM_NEAR_CROSSHAIR_TEXTURE, LEFT_UPPER_NEAR_CROSSHAIR_TEXTURE, LEFT_BOTTOM_NEAR_CROSSHAIR_TEXTURE,
       RIGHT_UPPER_NEAR_CROSSHAIR_TEXTURE, RIGHT_BOTTOM_NEAR_CROSSHAIR_TEXTURE;
 
+  private int scrollOffset = 0;
+  private int totalContentHeight = 0;
+
   private static Identifier currentModeImage;
   private static Identifier currentPositionImage;
   private static int currentIndicatorColor;
@@ -48,16 +51,12 @@ public class ConfigurationScreen extends Screen {
     super(Text.translatable(LocalizationKey.CONFIGURATION_MENU_NAME));
   }
 
-  @Override
-  protected void init() {
+@Override
+protected void init() {
     super.init();
-
-
     currentX = currentRowX = this.width / 2 - WIDGET_WIDTH - SPACING;
-    currentY = currentRowY = this.height / 2 - ROW_HEIGHT * 5 - SPACING * 5;
-
+    currentY = currentRowY = 10 - scrollOffset; // стартовая Y со скроллом
     currentIndicatorColor = 0xFF000000 | Integer.parseInt(ModConfig.indicatorColor, 16);
-
     addColorField();
     loadTextures();
     setupDefaultTextures();
@@ -66,7 +65,19 @@ public class ConfigurationScreen extends Screen {
     addSearchSlider();
     addWarningChecker();
     addGreetingsChecker();
+    totalContentHeight = currentY + scrollOffset; // реальная высота после добавления всех виджетов
+}
 
+  @Override
+  public boolean mouseScrolled(double mouseX, double mouseY, double horizontalAmount, double verticalAmount) {
+      int maxScroll = Math.max(0, totalContentHeight - this.height + 10);
+      scrollOffset = (int) Math.max(0, Math.min(maxScroll, scrollOffset - verticalAmount * 10));
+      
+      // пересоздаём виджеты с новым offset
+      clearChildren();
+      scrollOffset = scrollOffset; // уже обновлён
+      init();
+      return true;
   }
 
   private void changeIndicatorMode(CyclingButtonWidget button, String value) {
