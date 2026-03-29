@@ -18,6 +18,7 @@ import static minecraftlover.moonvent.HPHUD.util.Constant.IndicatorPosition.*;
 import static minecraftlover.moonvent.HPHUD.util.Constant.LocalizationKey;
 import static minecraftlover.moonvent.HPHUD.util.Constant.LocalizationKey.BUTTON_KEY;
 import static minecraftlover.moonvent.HPHUD.util.Constant.LocalizationKey.WARNING_AFTER_PRESS_MENU_KEY;
+import net.minecraft.client.gl.RenderPipelines;
 
 public class ConfigurationScreen extends Screen {
   private ModConfig modConfig = ModConfig.getInstance();
@@ -117,9 +118,9 @@ public class ConfigurationScreen extends Screen {
   @Override
   public void render(DrawContext context, int mouseX, int mouseY, float delta) {
     super.render(context, mouseX, mouseY, delta);
-    context.drawTexture(RenderLayer::getGuiTextured, currentModeImage, indicatorModeX, indicatorModeY, 0, 0, ResourcesPath.MOD_TEXTURE_SIZE,
+    context.drawGuiTexture(RenderPipelines.GUI_TEXTURED, currentModeImage, indicatorModeX, indicatorModeY, 0, 0, ResourcesPath.MOD_TEXTURE_SIZE,
         ResourcesPath.MOD_TEXTURE_SIZE, ResourcesPath.MOD_TEXTURE_SIZE, ResourcesPath.MOD_TEXTURE_SIZE);
-    context.drawTexture(RenderLayer::getGuiTextured, currentPositionImage, indicatorPositionX, indicatorPositionY, 0, 0,
+    context.drawGuiTexture(RenderPipelines.GUI_TEXTURED, currentPositionImage, indicatorPositionX, indicatorPositionY, 0, 0,
         ResourcesPath.MOD_TEXTURE_SIZE,
         ResourcesPath.MOD_TEXTURE_SIZE, ResourcesPath.MOD_TEXTURE_SIZE, ResourcesPath.MOD_TEXTURE_SIZE);
 

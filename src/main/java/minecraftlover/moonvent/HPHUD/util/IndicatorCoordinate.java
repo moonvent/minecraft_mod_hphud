@@ -75,6 +75,18 @@ public class IndicatorCoordinate {
     y = centerY - offsetY;
   }
 
+  public void updateFromWindow(int width, int height) {
+    config = ModConfig.getInstance();
+    calculateOffsetCoordinates();
+
+    int hGuiScale = !Objects.equals(config.outputIndicatorMode,
+        Constant.IndicatorType.CURRENT_HP) ? 14 : 7;
+    int vGuiScale = 7;
+
+    x = width / 2 - offsetXMultiplier * hGuiScale;
+    y = height / 2 - offsetYMultiplier * vGuiScale;
+  }
+
   private void calculateOffsetCoordinates() {
 
     switch (config.indicatorPosition) {
@@ -136,4 +148,5 @@ public class IndicatorCoordinate {
         break;
     }
   }
+
 }

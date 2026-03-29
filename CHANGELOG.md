@@ -1,3 +1,11 @@
+# 1.21.6+
+
+1. Update to minecraft version 1.21.6+
+
+# 1.21-1.21.5
+
+1. Update to minecraft version 1.21-1.21.5
+
 # 1.5.36
 
 1) Add configuration menu;
